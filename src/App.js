@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { SharedLayout } from "./pages/SharedLayout";
-import { Home } from "./pages/Home";
-import { WorkoutProgram } from "./pages/WorkoutProgram";
-import { Error } from "./pages/Error";
+import SharedLayout from "./pages/SharedLayout";
+import Home from "./pages/Home";
+import WorkoutProgram from "./pages/WorkoutProgram";
+import Error from "./pages/Error";
 
 export default function App() {
   return (
