@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { workoutsActions } from "../store/index";
 
-import SidebarButton from "./SidebarButton";
+import SidebarAddWorkoutButton from "./SidebarAddWorkoutButton";
+import SidebarWorkoutButton from "./SidebarWorkoutButton";
 import SidebarInput from "./SidebarInput";
 
 export default function Sidebar() {
@@ -54,7 +55,7 @@ export default function Sidebar() {
             onBlur={() => handleWorkoutSave(i)}
           />
         ) : (
-          <SidebarButton secondary>{workout.text}</SidebarButton>
+          <SidebarWorkoutButton secondary>{workout.text}</SidebarWorkoutButton>
         )}
       </Fragment>
     );
@@ -62,12 +63,12 @@ export default function Sidebar() {
 
   return (
     <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white bg-opacity-65 border-r font-roboto">
-      <SidebarButton onClick={handleNewWorkout} primary>
+      <SidebarAddWorkoutButton onClick={handleNewWorkout}>
         New Workout
-      </SidebarButton>
+      </SidebarAddWorkoutButton>
       <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
-        <SidebarButton secondary>Workout Golan</SidebarButton>
-        <SidebarButton secondary>Workout Jeremy</SidebarButton>
+        <SidebarWorkoutButton>Workout Golan</SidebarWorkoutButton>
+        <SidebarWorkoutButton>Workout Jeremy</SidebarWorkoutButton>
         {renderedWorkouts}
       </div>
     </div>
