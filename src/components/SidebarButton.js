@@ -8,11 +8,10 @@ export default function SidebarButton({
   onClick,
   onEdit,
   onDelete,
-  ...rest
 }) {
   const classes = className("w-full", {
     "bg-white px-8 py-4 border border-gray-400 shadow font-semibold": primary,
-    "text-left px-4 py-2": secondary,
+    "text-left sidebar-padding": secondary,
   });
 
   let button = (
@@ -26,7 +25,7 @@ export default function SidebarButton({
 
   return (
     // container for button
-    <div className="relative group rounded-lg text-gray-700 transition-colors duration-300 transform hover:bg-gray-100 hover:text-gray-800">
+    <div className="sidebar-container group">
       {/*button itself */}
       {button}
       {/*container for edit and delete buttons*/}

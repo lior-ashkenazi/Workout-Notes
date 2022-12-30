@@ -1,8 +1,10 @@
+import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { workoutsActions } from "../store/index";
 
 import SidebarButton from "./SidebarButton";
+import SidebarInput from "./SidebarInput";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -42,18 +44,19 @@ export default function Sidebar() {
 
   const renderedWorkouts = workoutsText.map((workout, i) => {
     return (
-      <>
+      <Fragment key={i}>
         {workout.editable ? (
-          <input
+          <SidebarInput
             type="text"
             value={workoutsText[i].text}
+            autoFocus
             onChange={(e) => handleWorkoutChange(e.target.value, i)}
             onBlur={() => handleWorkoutSave(i)}
           />
         ) : (
           <SidebarButton secondary>{workout.text}</SidebarButton>
         )}
-      </>
+      </Fragment>
     );
   });
 
@@ -63,9 +66,9 @@ export default function Sidebar() {
         New Workout
       </SidebarButton>
       <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
-        {renderedWorkouts}
         <SidebarButton secondary>Workout Golan</SidebarButton>
         <SidebarButton secondary>Workout Jeremy</SidebarButton>
+        {renderedWorkouts}
       </div>
     </div>
   );
