@@ -62,7 +62,7 @@ export default function Sidebar() {
       <SidebarButton onClick={handleNewWorkout} primary>
         New Workout
       </SidebarButton>
-      <div className="flex flex-col flex-1 mt-6 font-medium">
+      <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
         {renderedWorkouts}
         <SidebarButton secondary>Workout Golan</SidebarButton>
         <SidebarButton secondary>Workout Jeremy</SidebarButton>
