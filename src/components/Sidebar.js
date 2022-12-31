@@ -10,11 +10,10 @@ import SidebarInput from "./SidebarInput";
 export default function Sidebar() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.workouts);
-  console.log(state);
   const [workoutsText, setWorkoutsText] = useState([]);
 
   useEffect(() => {
-    console.log(state.data);
+    setWorkoutsText(state.data.map((workoutsText) => workoutsText.text));
   }, [state.data]);
 
   const handleWorkoutAdd = () => {
@@ -83,6 +82,7 @@ export default function Sidebar() {
             secondary
             onDelete={() => handleWorkoutDelete(i)}
             onEdit={() => handleWorkoutEdit(i)}
+            pageId={workout.id}
           >
             {workout.text}
           </SidebarWorkoutButton>
@@ -94,7 +94,7 @@ export default function Sidebar() {
   return (
     <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white bg-opacity-65 border-r font-roboto">
       <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
-        New Workout
+        Add Workout Program
       </SidebarAddWorkoutButton>
       <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
         {renderedWorkouts}

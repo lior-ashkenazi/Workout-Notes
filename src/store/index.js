@@ -4,8 +4,16 @@ import {
   actions as workoutsActions,
 } from "./slices/workoutsSlice";
 import storage from "redux-persist/lib/storage";
-import { persistReducer, persistStore } from "redux-persist";
-import thunk from "redux-thunk";
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from "redux-persist";
 
 const persistConfig = {
   key: "root",
@@ -19,8 +27,13 @@ const persistedReducer = persistReducer(persistConfig, workoutsReducer);
 export const store = configureStore({
   reducer: {
     workouts: persistedReducer,
-    middleware: [thunk],
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 });
 
 export const persistor = persistStore(store);

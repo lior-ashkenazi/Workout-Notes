@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { HiPencilAlt, HiTrash } from "react-icons/hi";
 
 export default function SidebarWorkoutButton({
@@ -5,17 +6,20 @@ export default function SidebarWorkoutButton({
   onClick,
   onEdit,
   onDelete,
+  pageId,
 }) {
   return (
     // container for button
     <div className="relative group sidebar-colors">
       {/*button itself */}
-      <button
-        onClick={onClick}
-        className="w-full rounded-lg text-left sidebar-padding"
-      >
-        {children}
-      </button>
+      <Link to={`/${pageId}`}>
+        <button
+          onClick={onClick}
+          className="w-full rounded-lg text-left sidebar-padding"
+        >
+          {children}
+        </button>
+      </Link>
       {/*container for edit and delete buttons*/}
       <div className="absolute top-0 right-0 mt-2.5 mr-2">
         <button
