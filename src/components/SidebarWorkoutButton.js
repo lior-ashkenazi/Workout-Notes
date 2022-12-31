@@ -15,7 +15,10 @@ export default function SidebarWorkoutButton({
       </button>
       {/*container for edit and delete buttons*/}
       <div className="absolute top-0 right-0 mt-2.5 mr-2">
-        <button className="mr-1 text-transparent transition-colors duration-300 transform group-hover:text-gray-800">
+        <button
+          onClick={onEdit}
+          className="mr-1 text-transparent transition-colors duration-300 transform group-hover:text-gray-800"
+        >
           <HiPencilAlt />
         </button>
         <button

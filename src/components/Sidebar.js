@@ -1,7 +1,7 @@
-import { Fragment } from "react";
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { workoutsActions } from "../store/index";
+import {Fragment} from "react";
+import {useEffect, useState} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {workoutsActions} from "../store/index";
 
 import SidebarAddWorkoutButton from "./SidebarAddWorkoutButton";
 import SidebarWorkoutButton from "./SidebarWorkoutButton";
@@ -37,20 +37,24 @@ export default function Sidebar() {
     setWorkoutsText(newWorkoutsText);
 
     const workout = state.data[i];
-    const updatedWorkout = { ...workout, text };
+    const updatedWorkout = {...workout, text};
     const newWorkouts = [...state.data];
     newWorkouts[i] = updatedWorkout;
 
     dispatch(workoutsActions.setWorkouts(newWorkouts));
   };
 
-  const handleWorkoutSave = (i) => {
+  const _handleWorkoutSet = (i, isEditable) => {
     const workout = state.data[i];
-    const updatedWorkout = { ...workout, editable: false };
+    const updatedWorkout = {...workout, editable: isEditable};
     const newWorkouts = [...state.data];
     newWorkouts[i] = updatedWorkout;
 
     dispatch(workoutsActions.setWorkouts(newWorkouts));
+  }
+
+  const handleWorkoutSave = (i) => {
+    _handleWorkoutSet(i, false)
   };
 
   const handleWorkoutDelete = (i) => {
@@ -59,41 +63,42 @@ export default function Sidebar() {
     dispatch(workoutsActions.deleteWorkout(workout.id));
   };
 
-  const handleEditWorkout = () => {};
+  const handleWorkoutEdit = (i) => {
+    _handleWorkoutSet(i, true)
+  };
 
   const renderedWorkouts = state.data.map((workout, i) => {
     return (
-      <Fragment key={workout.id}>
-        {workout.editable ? (
-          <SidebarInput
-            type="text"
-            value={workoutsText[i]}
-            autoFocus
-            onChange={(e) => handleWorkoutChange(e.target.value, i)}
-            onBlur={() => handleWorkoutSave(i)}
-          />
-        ) : (
-          <SidebarWorkoutButton
-            secondary
-            onDelete={() => handleWorkoutDelete(i)}
-          >
-            {workout.text}
-          </SidebarWorkoutButton>
-        )}
-      </Fragment>
+        <Fragment key={workout.id}>
+          {workout.editable ? (
+              <SidebarInput
+                  type="text"
+                  value={workoutsText[i]}
+                  autoFocus
+                  onChange={(e) => handleWorkoutChange(e.target.value, i)}
+                  onBlur={() => handleWorkoutSave(i)}
+              />
+          ) : (
+               <SidebarWorkoutButton
+                   secondary
+                   onDelete={() => handleWorkoutDelete(i)}
+                   onEdit={() => handleWorkoutEdit(i)}
+               >
+                 {workout.text}
+               </SidebarWorkoutButton>
+           )}
+        </Fragment>
     );
   });
 
   return (
-    <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white bg-opacity-65 border-r font-roboto">
-      <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
-        New Workout
-      </SidebarAddWorkoutButton>
-      <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
-        <SidebarWorkoutButton>Workout Golan</SidebarWorkoutButton>
-        <SidebarWorkoutButton>Workout Jeremy</SidebarWorkoutButton>
-        {renderedWorkouts}
+      <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white bg-opacity-65 border-r font-roboto">
+        <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
+          New Workout
+        </SidebarAddWorkoutButton>
+        <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
+          {renderedWorkouts}
+        </div>
       </div>
-    </div>
   );
 }
