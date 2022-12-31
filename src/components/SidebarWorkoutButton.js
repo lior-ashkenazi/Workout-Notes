@@ -8,9 +8,12 @@ export default function SidebarWorkoutButton({
 }) {
   return (
     // container for button
-    <div className="sidebar-container group">
+    <div className="relative group sidebar-colors">
       {/*button itself */}
-      <button onClick={onClick} className="w-full text-left sidebar-padding">
+      <button
+        onClick={onClick}
+        className="w-full rounded-lg text-left sidebar-padding"
+      >
         {children}
       </button>
       {/*container for edit and delete buttons*/}
