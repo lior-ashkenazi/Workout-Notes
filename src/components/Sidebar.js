@@ -17,45 +17,68 @@ export default function Sidebar() {
     console.log(state.data);
   }, [state.data]);
 
-  const handleNewWorkout = () => {
-    const newWorkoutTexts = [
-      ...workoutsText,
-      { text: "New Workout", editable: true },
-    ];
-    setWorkoutsText(newWorkoutTexts);
+  const handleWorkoutAdd = () => {
+    const newWorkout = {
+      id: state.nextWorkoutId,
+      text: "New Workout",
+      editable: true,
+    };
+
+    const newWorkouts = [...state.data];
+    setWorkoutsText([...workoutsText, "New Workout"]);
+    newWorkouts.push(newWorkout);
+
+    dispatch(workoutsActions.addWorkout(newWorkout));
   };
 
   const handleWorkoutChange = (text, i) => {
     const newWorkoutsText = [...workoutsText];
-    newWorkoutsText[i].text = text;
+    newWorkoutsText[i] = text;
     setWorkoutsText(newWorkoutsText);
+
+    const workout = state.data[i];
+    const updatedWorkout = { ...workout, text };
+    const newWorkouts = [...state.data];
+    newWorkouts[i] = updatedWorkout;
+
+    dispatch(workoutsActions.setWorkouts(newWorkouts));
   };
 
   const handleWorkoutSave = (i) => {
-    const newWorkoutsText = [...workoutsText];
-    newWorkoutsText[i].editable = false;
-    dispatch(
-      workoutsActions.addWorkout({
-        text: workoutsText[i],
-      })
-    );
+    const workout = state.data[i];
+    const updatedWorkout = { ...workout, editable: false };
+    const newWorkouts = [...state.data];
+    newWorkouts[i] = updatedWorkout;
+
+    dispatch(workoutsActions.setWorkouts(newWorkouts));
+  };
+
+  const handleWorkoutDelete = (i) => {
+    const workout = state.data[i];
+
+    dispatch(workoutsActions.deleteWorkout(workout.id));
   };
 
   const handleEditWorkout = () => {};
 
-  const renderedWorkouts = workoutsText.map((workout, i) => {
+  const renderedWorkouts = state.data.map((workout, i) => {
     return (
-      <Fragment key={i}>
+      <Fragment key={workout.id}>
         {workout.editable ? (
           <SidebarInput
             type="text"
-            value={workoutsText[i].text}
+            value={workoutsText[i]}
             autoFocus
             onChange={(e) => handleWorkoutChange(e.target.value, i)}
             onBlur={() => handleWorkoutSave(i)}
           />
         ) : (
-          <SidebarWorkoutButton secondary>{workout.text}</SidebarWorkoutButton>
+          <SidebarWorkoutButton
+            secondary
+            onDelete={() => handleWorkoutDelete(i)}
+          >
+            {workout.text}
+          </SidebarWorkoutButton>
         )}
       </Fragment>
     );
@@ -63,7 +86,7 @@ export default function Sidebar() {
 
   return (
     <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white bg-opacity-65 border-r font-roboto">
-      <SidebarAddWorkoutButton onClick={handleNewWorkout}>
+      <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
         New Workout
       </SidebarAddWorkoutButton>
       <div className="flex flex-col flex-1 mt-8 font-medium gap-4">

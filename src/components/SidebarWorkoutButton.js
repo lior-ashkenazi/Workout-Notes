@@ -1,5 +1,4 @@
 import { HiPencilAlt, HiTrash } from "react-icons/hi";
-import className from "classnames";
 
 export default function SidebarWorkoutButton({
   children,
@@ -19,13 +18,13 @@ export default function SidebarWorkoutButton({
         <button className="mr-1 text-transparent transition-colors duration-300 transform group-hover:text-gray-800">
           <HiPencilAlt />
         </button>
-        <button className="text-transparent transition-colors duration-300 transform group-hover:text-gray-800">
+        <button
+          onClick={onDelete}
+          className="text-transparent transition-colors duration-300 transform group-hover:text-gray-800"
+        >
           <HiTrash />
         </button>
       </div>
     </div>
-    // <button {...rest} className={classes}>
-    //   {children}
-    // </button>
   );
 }
