@@ -1,17 +1,32 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useSelector } from "react-redux";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useParams,
+} from "react-router-dom";
 import SharedLayout from "./pages/SharedLayout";
-import Home from "./pages/Home";
-import WorkoutProgram from "./pages/WorkoutPage";
-import Error from "./pages/Error";
+import HomePage from "./pages/HomePage";
+import WorkoutPage from "./pages/WorkoutPage";
+import ErrorPage from "./pages/ErrorPage";
+
+function ValidWorkoutPage() {
+  const { data: workouts } = useSelector((state) => state.workouts);
+  const { workoutId: workoutIdString } = useParams();
+  const workoutId = parseInt(workoutIdString, 10);
+  const validIds = workouts.map((workout) => workout.id);
+  return validIds.includes(workoutId) ? <WorkoutPage /> : <Navigate to="*" />;
+}
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<Home />} />
-          <Route path=":workoutId" element={<WorkoutProgram />} />
-          {/*<Route path="*" element={<Error />} />*/}
+          <Route index element={<HomePage />} />
+          <Route path=":workoutId" element={<ValidWorkoutPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
