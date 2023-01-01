@@ -7,8 +7,7 @@ import ErrorPage from "./pages/ErrorPage";
 
 function ValidWorkoutPage() {
   const { data: workouts } = useSelector((state) => state.workouts);
-  const { workoutId: workoutIdString } = useParams();
-  const workoutId = parseInt(workoutIdString, 10);
+  const { workoutId } = useParams();
   const validIds = workouts.map((workout) => workout.id);
   console.log(validIds);
   return validIds.includes(workoutId) ? <WorkoutPage /> : <ErrorPage />;
