@@ -18,7 +18,6 @@ export default function Sidebar() {
 
   const handleWorkoutAdd = () => {
     const newWorkout = {
-      id: state.nextWorkoutId,
       text: "New Workout",
       editable: true,
     };

@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    .sidebar-colors > button,
-    .sidebar-colors > * > button {
+    .sidebar-colors {
         @apply text-gray-700 outline-gray-700 transition-colors duration-300 transform hover:bg-gray-100 hover:text-gray-800 active:bg-gray-200 active:text-gray-900
     }
 

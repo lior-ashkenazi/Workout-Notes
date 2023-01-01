@@ -1,11 +1,5 @@
 import { useSelector } from "react-redux";
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Navigate,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
 import SharedLayout from "./pages/SharedLayout";
 import HomePage from "./pages/HomePage";
 import WorkoutPage from "./pages/WorkoutPage";
@@ -16,7 +10,8 @@ function ValidWorkoutPage() {
   const { workoutId: workoutIdString } = useParams();
   const workoutId = parseInt(workoutIdString, 10);
   const validIds = workouts.map((workout) => workout.id);
-  return validIds.includes(workoutId) ? <WorkoutPage /> : <Navigate to="*" />;
+  console.log(validIds);
+  return validIds.includes(workoutId) ? <WorkoutPage /> : <ErrorPage />;
 }
 
 export default function App() {
