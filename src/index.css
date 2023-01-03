@@ -10,4 +10,25 @@
     .sidebar-padding {
         @apply px-4 py-2
     }
+
+    .carousel-bg > button > svg {
+        @apply fill-stone-50
+    }
+
+    .carousel-bg > div {
+        @apply bg-stone-50
+    }
+
+    .carousel-colors {
+        @apply text-stone-800
+    }
+
+    .card {
+        @apply flex flex-col w-96 min-w-max pt-8 px-16 pb-16 rounded-lg shadow-lg
+    }
+
+    .arrow-icon {
+        @apply text-5xl drop-shadow-lg
+    }
+
 }

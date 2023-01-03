@@ -3,7 +3,7 @@ import Sidebar from "../components/Sidebar";
 
 export default function SharedLayout() {
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-purple-100 font-roboto">
       <Sidebar />
       <Outlet />
     </div>

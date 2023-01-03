@@ -91,7 +91,7 @@ export default function Sidebar() {
   });
 
   return (
-    <div className="flex flex-col w-64 h-screen px-4 py-8 bg-white bg-opacity-65 border-r font-roboto">
+    <div className="flex flex-col w-80 h-screen px-4 py-8 bg-white bg-opacity-65 border-r">
       <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
         Add Workout Program
       </SidebarAddWorkoutButton>
