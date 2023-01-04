@@ -9,7 +9,9 @@ function ValidWorkoutPage() {
   const { data: workouts } = useSelector((state) => state.workouts);
   const { workoutId } = useParams();
   const validIds = workouts.map((workout) => workout.id);
+  console.log(useParams());
   console.log(validIds);
+  console.log(validIds.includes(workoutId));
   return validIds.includes(workoutId) ? <WorkoutPage /> : <ErrorPage />;
 }
 

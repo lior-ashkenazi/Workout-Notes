@@ -23,7 +23,7 @@ export default function Sidebar() {
     };
 
     const newWorkouts = [...state.data];
-    setWorkoutsText([...workoutsText, ""]);
+    setWorkoutsText([...workoutsText, "Workout Program"]);
     newWorkouts.push(newWorkout);
 
     dispatch(workoutsActions.addWorkout(newWorkout));
@@ -42,7 +42,7 @@ export default function Sidebar() {
     dispatch(workoutsActions.setWorkouts(newWorkouts));
   };
 
-  const _handleWorkoutSet = (i, isEditable) => {
+  const _handleWorkoutEditable = (i, isEditable) => {
     const workout = state.data[i];
     const updatedWorkout = { ...workout, editable: isEditable };
     const newWorkouts = [...state.data];
@@ -52,17 +52,15 @@ export default function Sidebar() {
   };
 
   const handleWorkoutSave = (i) => {
-    _handleWorkoutSet(i, false);
+    _handleWorkoutEditable(i, false);
   };
 
   const handleWorkoutDelete = (i) => {
-    const workout = state.data[i];
-
-    dispatch(workoutsActions.deleteWorkout(workout.id));
+    dispatch(workoutsActions.deleteWorkout(i));
   };
 
   const handleWorkoutEdit = (i) => {
-    _handleWorkoutSet(i, true);
+    _handleWorkoutEditable(i, true);
   };
 
   const renderedWorkouts = state.data.map((workout, i) => {
@@ -95,7 +93,7 @@ export default function Sidebar() {
       <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
         Add Workout Program
       </SidebarAddWorkoutButton>
-      <div className="flex flex-col flex-1 mt-8 font-medium gap-4 sidebar-input-border">
+      <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
         {renderedWorkouts}
       </div>
     </div>

@@ -22,9 +22,7 @@ const workoutsSlice = createSlice({
       state.data = action.payload;
     },
     deleteWorkout(state, action) {
-      state.data = state.data.filter(
-        (workout) => workout.id !== action.payload
-      );
+      state.data.splice(action.payload, 1);
     },
   },
 });
