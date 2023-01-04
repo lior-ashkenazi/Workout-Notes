@@ -18,12 +18,12 @@ export default function Sidebar() {
 
   const handleWorkoutAdd = () => {
     const newWorkout = {
-      text: "New Workout",
+      text: "Workout Program",
       editable: true,
     };
 
     const newWorkouts = [...state.data];
-    setWorkoutsText([...workoutsText, "New Workout"]);
+    setWorkoutsText([...workoutsText, ""]);
     newWorkouts.push(newWorkout);
 
     dispatch(workoutsActions.addWorkout(newWorkout));
@@ -91,11 +91,11 @@ export default function Sidebar() {
   });
 
   return (
-    <div className="flex flex-col w-80 h-screen px-4 py-8 bg-white bg-opacity-65 border-r">
+    <div className="flex flex-col shrink-0 w-72 h-screen px-4 py-8 bg-white bg-opacity-65 border-r">
       <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
         Add Workout Program
       </SidebarAddWorkoutButton>
-      <div className="flex flex-col flex-1 mt-8 font-medium gap-4">
+      <div className="flex flex-col flex-1 mt-8 font-medium gap-4 sidebar-input-border">
         {renderedWorkouts}
       </div>
     </div>

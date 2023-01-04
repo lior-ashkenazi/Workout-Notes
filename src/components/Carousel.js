@@ -1,16 +1,16 @@
 import { useState } from "react";
-import Card from "./Card";
+import CarouselCard from "./CarouselCard";
 import CarouselArrow from "./CarouselArrow";
 
 export default function Carousel({ workoutId }) {
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
   const [cards, setCards] = useState([
-    "Card 1",
-    "Card 2",
-    "Card 3",
-    "Card 4",
-    "Card 5",
+    "CarouselCard 1",
+    "CarouselCard 2",
+    "CarouselCard 3",
+    "CarouselCard 4",
+    "CarouselCard 5",
   ]);
 
   const mainCard = cards[currentCardIndex];
@@ -32,7 +32,7 @@ export default function Carousel({ workoutId }) {
         isDefaultDirection
         showArrow={validPrevArrow}
       />
-      <Card number={mainCard} />
+      <CarouselCard number={mainCard} />
       <CarouselArrow onClick={handleNextClick} showArrow={validNextArrow} />
     </div>
   );

@@ -4,7 +4,7 @@
 
 @layer components {
     .sidebar-colors {
-        @apply text-gray-700 outline-gray-700 transition-colors duration-300 transform hover:bg-gray-100 hover:text-gray-800 active:bg-gray-200 active:text-gray-900
+        @apply text-stone-700 outline-stone-700 transition-colors duration-300 transform hover:bg-stone-100 hover:text-stone-800 active:bg-stone-200 active:text-stone-900
     }
 
     .sidebar-padding {
@@ -20,11 +20,15 @@
     }
 
     .carousel-colors {
-        @apply text-stone-800
+        @apply text-stone-800 border-stone-800
     }
 
-    .card {
-        @apply flex flex-col w-96 min-w-max pt-8 px-16 pb-16 rounded-lg shadow-lg
+    .carousel-card {
+        @apply flex flex-col min-w-[35%] min-h-[70%] pt-8 px-16 pb-16 rounded-lg shadow-lg transition-all duration-300
+    }
+
+    .carousel-card-title * {
+        @apply text-3xl font-bold
     }
 
     .arrow-icon {

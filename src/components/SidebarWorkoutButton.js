@@ -10,13 +10,10 @@ export default function SidebarWorkoutButton({
 }) {
   return (
     // container for button
-    <div className="relative group sidebar-colors">
+    <div className="relative group sidebar-colors sidebar-padding">
       {/*button itself */}
       <Link to={`/${pageId}`}>
-        <button
-          onClick={onClick}
-          className="w-full rounded-lg text-left sidebar-padding"
-        >
+        <button onClick={onClick} className="w-full rounded-lg text-left">
           {children}
         </button>
       </Link>
@@ -24,13 +21,13 @@ export default function SidebarWorkoutButton({
       <div className="absolute top-0 right-0 mt-2.5 mr-2">
         <button
           onClick={onEdit}
-          className="mr-1 text-transparent transition-colors duration-300 transform group-hover:text-gray-800"
+          className="mr-1 text-transparent transition-colors duration-300 transform group-hover:text-stone-800"
         >
           <HiPencilAlt />
         </button>
         <button
           onClick={onDelete}
-          className="text-transparent transition-colors duration-300 transform group-hover:text-gray-800"
+          className="text-transparent transition-colors duration-300 transform group-hover:text-stone-800"
         >
           <HiTrash />
         </button>
