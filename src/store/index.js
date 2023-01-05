@@ -1,8 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 import {
   reducer as workoutsReducer,
-  actions as workoutsActions,
-} from "./slices/workoutsSlice";
+  actions as sidebarItemsActions,
+} from "./slices/sidebarInputsSlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
@@ -38,4 +38,4 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-export { workoutsActions };
+export { sidebarItemsActions };

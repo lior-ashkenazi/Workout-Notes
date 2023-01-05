@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { workoutsActions } from "../store/index";
+import { sidebarItemsActions } from "../store/index";
 
-import SidebarAddWorkoutButton from "./SidebarAddWorkoutButton";
-import SidebarWorkoutButton from "./SidebarWorkoutButton";
+import SidebarAddButton from "./SidebarAddButton";
+import SidebarButton from "./SidebarButton";
 import SidebarInput from "./SidebarInput";
 
 export default function Sidebar() {
@@ -26,7 +26,7 @@ export default function Sidebar() {
     setWorkoutsText([...workoutsText, "Workout Program"]);
     newWorkouts.push(newWorkout);
 
-    dispatch(workoutsActions.addWorkout(newWorkout));
+    dispatch(sidebarItemsActions.addWorkout(newWorkout));
   };
 
   const handleWorkoutChange = (text, i) => {
@@ -39,7 +39,7 @@ export default function Sidebar() {
     const newWorkouts = [...state.data];
     newWorkouts[i] = updatedWorkout;
 
-    dispatch(workoutsActions.setWorkouts(newWorkouts));
+    dispatch(sidebarItemsActions.setWorkouts(newWorkouts));
   };
 
   const _handleWorkoutEditable = (i, isEditable) => {
@@ -48,7 +48,7 @@ export default function Sidebar() {
     const newWorkouts = [...state.data];
     newWorkouts[i] = updatedWorkout;
 
-    dispatch(workoutsActions.setWorkouts(newWorkouts));
+    dispatch(sidebarItemsActions.setWorkouts(newWorkouts));
   };
 
   const handleWorkoutSave = (i) => {
@@ -56,7 +56,7 @@ export default function Sidebar() {
   };
 
   const handleWorkoutDelete = (i) => {
-    dispatch(workoutsActions.deleteWorkout(i));
+    dispatch(sidebarItemsActions.deleteWorkout(i));
 
     // TODO navigate to homepage
   };
@@ -77,14 +77,14 @@ export default function Sidebar() {
             onBlur={() => handleWorkoutSave(i)}
           />
         ) : (
-          <SidebarWorkoutButton
+          <SidebarButton
             secondary
             onDelete={() => handleWorkoutDelete(i)}
             onEdit={() => handleWorkoutEdit(i)}
             pageId={workout.id}
           >
             {workout.text}
-          </SidebarWorkoutButton>
+          </SidebarButton>
         )}
       </Fragment>
     );
@@ -92,12 +92,12 @@ export default function Sidebar() {
 
   return (
     <div className="flex flex-col gap-8 shrink-0 w-72 h-screen px-4 py-8 bg-white bg-opacity-65 border-r">
-      <SidebarAddWorkoutButton onClick={handleWorkoutAdd}>
+      <SidebarAddButton onClick={handleWorkoutAdd}>
         Add Workout Program
-      </SidebarAddWorkoutButton>
-      <div className="flex flex-col flex-1 font-medium gap-4">
+      </SidebarAddButton>
+      <ul className="flex flex-col flex-1 font-medium gap-4">
         {renderedWorkouts}
-      </div>
+      </ul>
     </div>
   );
 }

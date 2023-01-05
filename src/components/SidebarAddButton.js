@@ -1,4 +1,4 @@
-export default function SidebarAddWorkoutButton({ children, onClick }) {
+export default function SidebarAddButton({ children, onClick }) {
   return (
     <div>
       <button

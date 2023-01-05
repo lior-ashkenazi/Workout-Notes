@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { HiPencilAlt, HiTrash } from "react-icons/hi";
 
-export default function SidebarWorkoutButton({
+export default function SidebarButton({
   children,
   onClick,
   onEdit,
