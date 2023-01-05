@@ -24,7 +24,7 @@ export default function CarouseCardlTitle() {
           onChange={handleTitleChange}
           onBlur={handleTitleBlur}
           autoFocus
-          className="grow-0 outline-0 border-b-2 border-stone-800 bg-stone-50"
+          className="w-full outline-0 border-b-2 border-stone-800 bg-stone-50"
           placeholder="Workout Day"
         />
       ) : (
