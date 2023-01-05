@@ -13,7 +13,10 @@ export default function SidebarWorkoutButton({
     <div className="relative group sidebar-colors sidebar-padding">
       {/*button itself */}
       <Link to={`/${pageId}`}>
-        <button onClick={onClick} className="w-full rounded-lg text-left">
+        <button
+          onClick={onClick}
+          className="w-full border-b-2 border-b-transparent rounded-lg text-left"
+        >
           {children}
         </button>
       </Link>

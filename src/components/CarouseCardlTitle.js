@@ -30,7 +30,7 @@ export default function CarouseCardlTitle() {
       ) : (
         <h2
           onClick={handleTitleClick}
-          className="w-full hover:border-b-2 transition-colors duration-300 hover:border-stone-800"
+          className="w-full border-b-2 border-b-transparent transition-colors duration-300 hover:border-b-2  hover:border-stone-800"
         >
           {title}
         </h2>
