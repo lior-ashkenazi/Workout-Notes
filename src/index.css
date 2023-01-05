@@ -24,11 +24,11 @@
     }
 
     .carousel-card {
-        @apply flex flex-col w-[40%] min-h-[85%] pt-8 px-16 pb-16 rounded-lg shadow-lg transition-all duration-300 overflow-auto gap-y-7
+        @apply flex flex-col w-[40%] min-h-[85%] pt-8 px-16 pb-16 rounded-lg shadow-lg transition-all duration-300 overflow-auto gap-y-12
     }
 
     .carousel-card-title * {
-        @apply text-3xl font-bold
+        @apply text-4xl font-bold tracking-tight
     }
 
     .arrow-icon {

@@ -6,7 +6,7 @@ export default function CarouselCard({ number }) {
   return (
     <div className="carousel-card">
       <CarouseCardlTitle />
-      <div className="w-full mt-4">
+      <div className="w-full">
         <CarouselCardForm />
       </div>
     </div>
