@@ -24,7 +24,7 @@
     }
 
     .carousel-card {
-        @apply flex flex-col min-w-[35%] min-h-[70%] pt-8 px-16 pb-16 rounded-lg shadow-lg transition-all duration-300
+        @apply flex flex-col w-[40%] min-h-[85%] pt-8 px-16 pb-16 rounded-lg shadow-lg transition-all duration-300 overflow-auto gap-y-7
     }
 
     .carousel-card-title * {

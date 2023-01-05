@@ -18,7 +18,7 @@ export default function SidebarWorkoutButton({
         </button>
       </Link>
       {/*container for edit and delete buttons*/}
-      <div className="absolute top-0 right-0 mt-2.5 mr-2">
+      <span className="absolute top-0 right-0 mt-2.5 mr-2">
         <button
           onClick={onEdit}
           className="mr-1 text-transparent transition-colors duration-300 transform group-hover:text-stone-800"
@@ -31,7 +31,7 @@ export default function SidebarWorkoutButton({
         >
           <HiTrash />
         </button>
-      </div>
+      </span>
     </div>
   );
 }

@@ -26,7 +26,7 @@ export default function Carousel({ workoutId }) {
   }
 
   return (
-    <div className="carousel-colors carousel-bg flex w-full items-center justify-center gap-12">
+    <div className="carousel-colors carousel-bg flex shrink items-center justify-center gap-12 w-full">
       <CarouselArrow
         onClick={handlePrevClick}
         isDefaultDirection
