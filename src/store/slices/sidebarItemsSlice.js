@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { v4 as uuidv4 } from "uuid";
 
-const sidebarInputsSlice = createSlice({
+const sidebarItemsSlice = createSlice({
   name: "workouts",
   initialState: {
     data: [],
@@ -27,4 +27,4 @@ const sidebarInputsSlice = createSlice({
   },
 });
 
-export const { reducer, actions } = sidebarInputsSlice;
+export const { reducer, actions } = sidebarItemsSlice;

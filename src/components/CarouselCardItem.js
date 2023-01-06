@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function CarouselCardItem({ formId }) {
+export default function CarouselCardItem({ itemId }) {
   const [name, setName] = useState("");
   const [sets, setSets] = useState("");
   const [reps, setReps] = useState("");

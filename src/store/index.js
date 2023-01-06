@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import {
   reducer as workoutsReducer,
   actions as sidebarItemsActions,
-} from "./slices/sidebarInputsSlice";
+} from "./slices/sidebarItemsSlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
