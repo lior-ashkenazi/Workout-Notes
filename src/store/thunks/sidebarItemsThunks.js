@@ -6,7 +6,7 @@ import { addCarouselThunk } from "./carouselsThunks";
 
 export const addSidebarItemThunk = createAsyncThunk(
   "sidebarItems/addSidebarItem",
-  ({ getState, dispatch }) => {
+  async (_, { getState, dispatch }) => {
     const id = uuidv4();
 
     dispatch(actions.addSidebarItem({ text: "", editable: false, id }));

@@ -4,7 +4,7 @@ import { addCardThunk } from "./cardsThunks";
 
 export const addCarouselThunk = createAsyncThunk(
   "carousels/addCarousel",
-  (id, { getState, dispatch }) => {
+  async (id, { getState, dispatch }) => {
     const cardId = dispatch(addCardThunk());
 
     dispatch(actions.addCarousel({ id, cardId }));

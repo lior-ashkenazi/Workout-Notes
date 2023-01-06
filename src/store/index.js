@@ -1,8 +1,20 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
-  reducer as workoutsReducer,
+  reducer as sidebarItemsReducer,
   actions as sidebarItemsActions,
 } from "./slices/sidebarItemsSlice";
+import {
+  reducer as carouselsReducer,
+  actions as carouselsActions,
+} from "./slices/carouselsSlice";
+import {
+  reducer as cardsReducer,
+  actions as cardsActions,
+} from "./slices/cardsSlice";
+import {
+  reducer as cardItemsReducer,
+  actions as cardItemsActions,
+} from "./slices/cardItemsSlice";
 import storage from "redux-persist/lib/storage";
 import {
   persistReducer,
@@ -21,12 +33,18 @@ const persistConfig = {
 };
 
 // TODO should use combinedReducer
+const rootReducer = combineReducers({
+  sidebarItems: sidebarItemsReducer,
+  carousels: carouselsReducer,
+  cards: cardsReducer,
+  cardItems: cardItemsReducer,
+});
 
-const persistedReducer = persistReducer(persistConfig, workoutsReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: {
-    workouts: persistedReducer,
+    reducer: persistedReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
@@ -38,4 +56,9 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
-export { sidebarItemsActions };
+export {
+  sidebarItemsActions,
+  carouselsActions,
+  cardsActions,
+  cardItemsActions,
+};
