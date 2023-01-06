@@ -7,21 +7,22 @@ const sidebarItemsSlice = createSlice({
     data: [],
   },
   reducers: {
-    // addWorkout(state, action) {
-    //   state.data.push(action.payload);
-    // },
-    addWorkout: {
-      reducer(state, action) {
-        state.data.push(action.payload);
-      },
-      prepare(workout) {
-        return { payload: { ...workout, id: uuidv4() } };
-      },
+    addSidebarItem(state, action) {
+      state.data.push(action.payload);
     },
-    setWorkouts(state, action) {
+    // addWorkout: {
+    //   reducer(state, action) {
+    //     state.data.push(action.payload);
+    //   },
+    // prepare(workout) {
+    //   return { payload: { ...workout, id: uuidv4() } };
+    // },
+    // },
+    updateSidebarItems(state, action) {
       state.data = action.payload;
     },
-    deleteWorkout(state, action) {
+    // TODO should be in the extraReducer
+    deleteSidebarItem(state, action) {
       state.data.splice(action.payload, 1);
     },
   },
