@@ -10,15 +10,15 @@ export default function SidebarItem({ sidebarItemId }) {
   const [text, setText] = useState(state.data[sidebarItemId].text);
   const [editable, setEditable] = useState(state.data[sidebarItemId].editable);
 
-  const handleWorkoutChange = (event) => {
+  const handleTextChange = (event) => {
     setText(event.target.value);
   };
 
-  const handleWorkoutEdit = (i) => {
+  const handleTextEdit = (i) => {
     setEditable(true);
   };
 
-  const handleWorkoutSubmit = (i) => {
+  const handleTextSubmit = (i) => {
     setEditable(false);
 
     const updatedInfo = { text, editable: false };
@@ -30,6 +30,7 @@ export default function SidebarItem({ sidebarItemId }) {
     );
   };
 
+  // TODO when we press enter is like submit
   return (
     <>
       {editable ? (
@@ -37,13 +38,16 @@ export default function SidebarItem({ sidebarItemId }) {
           type="text"
           value={text}
           autoFocus
-          onChange={handleWorkoutChange}
-          onBlur={handleWorkoutSubmit}
+          onChange={handleTextChange}
+          onBlur={handleTextSubmit}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleTextSubmit();
+          }}
         />
       ) : (
         <SidebarButton
           secondary
-          onEdit={handleWorkoutEdit}
+          onEdit={handleTextEdit}
           // onDelete={() => handleWorkoutDelete(i)}
           pageId={sidebarItemId}
         >

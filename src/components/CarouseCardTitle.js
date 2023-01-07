@@ -23,14 +23,18 @@ export default function CarouseCardTitle({ cardId }) {
     dispatch(cardsActions.updateCardTitle({ id: cardId, info: updatedInfo }));
   };
 
-  // TODO when we click is like submit
+  // TODO when we press enter is like submit
   return (
     <div className="carousel-card-title">
       {editable ? (
         <input
+          type="text"
           value={text}
           onChange={handleTitleChange}
           onBlur={handleTitleSubmit}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") handleTitleSubmit();
+          }}
           autoFocus
           className="w-full outline-0 border-b-2 border-stone-800 bg-stone-50"
           placeholder="Workout Day"
