@@ -10,17 +10,19 @@ export default function CarouselCard({ cardId, onAdd }) {
   const state = useSelector((state) => state.reducer.cards);
   console.log(state);
 
-  const handleCardItemAdd = () => {
-    dispatch(addCardItemToCardThunk(cardId));
+  const handleCardItemAdd = (i) => {
+    dispatch(addCardItemToCardThunk({ id: cardId, i }));
   };
 
-  const renderedCardItems = state.data[cardId].cardItemsId.map((cardItemId) => (
-    <CarouselCardItem
-      key={cardItemId}
-      cardItemId={cardItemId}
-      onAdd={handleCardItemAdd}
-    />
-  ));
+  const renderedCardItems = state.data[cardId].cardItemsId.map(
+    (cardItemId, i) => (
+      <CarouselCardItem
+        key={cardItemId}
+        cardItemId={cardItemId}
+        onAdd={() => handleCardItemAdd(i)}
+      />
+    )
+  );
 
   return (
     <div className="relative carousel-card">

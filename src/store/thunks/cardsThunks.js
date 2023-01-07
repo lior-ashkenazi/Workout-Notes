@@ -19,9 +19,9 @@ export const addCardThunk = createAsyncThunk(
 
 export const addCardItemToCardThunk = createAsyncThunk(
   "cards/addCardItemToCard",
-  async (id, { getState, dispatch }) => {
+  async ({ id, i }, { getState, dispatch }) => {
     const { payload: cardItemId } = await dispatch(addCardItemThunk());
 
-    dispatch(actions.addCardItemToCard({ id, cardItemId }));
+    dispatch(actions.addCardItemToCard({ id, i, cardItemId }));
   }
 );

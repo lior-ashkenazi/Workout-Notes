@@ -47,7 +47,7 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
       {editable ? (
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2"
+          className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 mr-10 ml-4"
         >
           <div className="col-span-2 inline-flex gap-2">
             <label htmlFor="name" className="font-bold">
