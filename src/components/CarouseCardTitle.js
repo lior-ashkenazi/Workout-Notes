@@ -17,6 +17,8 @@ export default function CarouseCardTitle({ cardId }) {
   };
 
   const handleTitleSubmit = () => {
+    if (!text) return;
+
     setEditable(false);
 
     const updatedInfo = { text, editable: false };

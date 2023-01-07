@@ -19,6 +19,8 @@ export default function SidebarItem({ sidebarItemId }) {
   };
 
   const handleTextSubmit = () => {
+    if (!text) return;
+
     setEditable(false);
 
     const updatedInfo = { text, editable: false };
