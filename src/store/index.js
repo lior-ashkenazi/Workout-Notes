@@ -56,6 +56,10 @@ export const store = configureStore({
 
 export const persistor = persistStore(store);
 
+export * from "./thunks/sidebarItemsThunks";
+export * from "./thunks/carouselsThunks";
+export * from "./thunks/cardsThunks";
+export * from "./thunks/cardsItemsThunks";
 export {
   sidebarItemsActions,
   carouselsActions,

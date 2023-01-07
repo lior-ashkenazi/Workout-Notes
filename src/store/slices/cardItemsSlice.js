@@ -8,7 +8,13 @@ const cardItemsSlice = createSlice({
   reducers: {
     addCardItem(state, action) {
       const id = action.payload;
-      state.data[id] = {};
+      state.data[id] = {
+        name: "",
+        sets: "",
+        reps: "",
+        technique: "",
+        editable: true,
+      };
     },
     updateCardItem(state, action) {
       const { id, info } = action.payload;

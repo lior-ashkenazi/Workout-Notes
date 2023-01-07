@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { sidebarItemsActions } from "../store/index";
+import { addSidebarItemThunk, sidebarItemsActions } from "../store/index";
 
 import SidebarAddButton from "./SidebarAddButton";
 import SidebarButton from "./SidebarButton";
@@ -9,7 +9,9 @@ import SidebarInput from "./SidebarInput";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.sidebarItems);
+  const state = useSelector((state) => state.reducer.sidebarItems);
+  const bigstate = useSelector((state) => state);
+  console.log(bigstate);
   const [workoutsText, setWorkoutsText] = useState([]);
 
   useEffect(() => {
@@ -17,12 +19,9 @@ export default function Sidebar() {
   }, [state.data]);
 
   const handleWorkoutAdd = () => {
-    // TODO call relevant thunk
-    dispatch(sidebarItemsActions.addSidebarItem());
+    dispatch(addSidebarItemThunk());
 
-    setWorkoutsText([...workoutsText, ""]);
-
-    // TODO navigate to the relevant page
+    setWorkoutsText([...workoutsText, "Workout Program"]);
   };
 
   const handleWorkoutChange = (text, i) => {

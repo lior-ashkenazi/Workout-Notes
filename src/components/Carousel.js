@@ -1,15 +1,18 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import CarouselCard from "./CarouselCard";
 import CarouselArrow from "./CarouselArrow";
 
 export default function Carousel({ carouselId }) {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.reducer.carousels);
   const [currentCardIndex, setCurrentCardIndex] = useState(0);
 
-  const [cards, setCards] = useState(["CarouselCard 1"]);
+  const [cardsId, setCardsId] = useState([...state.data[carouselId]]);
 
-  const mainCard = cards[currentCardIndex];
+  const mainCardId = cardsId[currentCardIndex];
   const validPrevArrow = currentCardIndex > 0;
-  const validNextArrow = currentCardIndex < cards.length - 1;
+  const validNextArrow = currentCardIndex < cardsId.length - 1;
 
   function handlePrevClick() {
     validPrevArrow > 0 && setCurrentCardIndex(currentCardIndex - 1);
@@ -26,7 +29,7 @@ export default function Carousel({ carouselId }) {
         isDefaultDirection
         showArrow={validPrevArrow}
       />
-      <CarouselCard number={mainCard} />
+      <CarouselCard cardId={cardsId[currentCardIndex]} />
       <CarouselArrow onClick={handleNextClick} showArrow={validNextArrow} />
     </div>
   );

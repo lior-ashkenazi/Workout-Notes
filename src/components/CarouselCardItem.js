@@ -1,11 +1,18 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { cardItemsActions } from "../store";
 
-export default function CarouselCardItem({ itemId }) {
-  const [name, setName] = useState("");
-  const [sets, setSets] = useState("");
-  const [reps, setReps] = useState("");
-  const [technique, setTechnique] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+export default function CarouselCardItem({ cardItemId }) {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state.reducer.cardItems);
+  const [name, setName] = useState(state.data[cardItemId].name);
+  const [sets, setSets] = useState(state.data[cardItemId].sets);
+  const [reps, setReps] = useState(state.data[cardItemId].reps);
+  const [technique, setTechnique] = useState(state.data[cardItemId].technique);
+  const [editable, setEditable] = useState(state.data[cardItemId].editable);
+
+  console.log("item");
+  console.log(state.data);
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -26,12 +33,20 @@ export default function CarouselCardItem({ itemId }) {
   function handleSubmit(event) {
     event.preventDefault();
 
-    setSubmitted(true);
+    setEditable(false);
+
+    const updatedInfo = { name, sets, reps, technique, editable: false };
+    dispatch(
+      cardItemsActions.updateCardItem({
+        id: cardItemId,
+        info: updatedInfo,
+      })
+    );
   }
 
   return (
     <>
-      {!submitted ? (
+      {editable ? (
         <form
           onSubmit={handleSubmit}
           className="grid grid-cols-4 gap-3 place-items-start"

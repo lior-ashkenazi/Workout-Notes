@@ -7,12 +7,19 @@ const cardsSlice = createSlice({
   },
   reducers: {
     addCard(state, action) {
-      const id = action.payload;
-      state.data[id] = [];
+      const { id, cardItemId } = action.payload;
+      state.data[id] = {
+        title: { text: "", editable: true },
+        cardItemsId: [cardItemId],
+      };
     },
     addCardItemToCard(state, action) {
       const { id, cardItemId } = action.payload;
       state.data[id].push(cardItemId);
+    },
+    updateCardTitle(state, action) {
+      const { id, info } = action.payload;
+      state.data[id].title = info;
     },
   },
 });

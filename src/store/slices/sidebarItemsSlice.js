@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const sidebarItemsSlice = createSlice({
-  name: "workouts",
+  name: "sidebarItems",
   initialState: {
     data: [],
   },

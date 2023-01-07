@@ -1,26 +1,33 @@
 import { useState } from "react";
 
-export default function CarouseCardlTitle() {
-  const [title, setTitle] = useState("Workout Day");
-  const [editingTitle, setEditingTitle] = useState(false);
+export default function CarouseCardlTitle({ currentTitle, onSubmit }) {
+  const [titleText, setTitleText] = useState(currentTitle.text);
+  const [editable, setEditable] = useState(currentTitle.editable);
+  console.log("currentTitle");
+  console.log(currentTitle);
 
-  function handleTitleChange(event) {
-    setTitle(event.target.value);
-  }
+  const handleTitleChange = (event) => {
+    setTitleText(event.target.value);
+  };
 
-  function handleTitleClick() {
-    setEditingTitle(true);
-  }
+  const handleTitleClick = () => {
+    setEditable(true);
+  };
 
-  function handleTitleBlur() {
-    setEditingTitle(false);
-  }
+  const handleTitleBlur = () => {
+    setEditable(false);
+
+    onSubmit({
+      text: !titleText ? "Workout Day" : titleText,
+      editable: false,
+    });
+  };
 
   return (
     <div className="carousel-card-title">
-      {editingTitle ? (
+      {editable ? (
         <input
-          value={title}
+          value={titleText}
           onChange={handleTitleChange}
           onBlur={handleTitleBlur}
           autoFocus
@@ -32,7 +39,7 @@ export default function CarouseCardlTitle() {
           onClick={handleTitleClick}
           className="w-full border-b-2 border-b-transparent transition-colors duration-300 hover:border-b-2  hover:border-stone-800"
         >
-          {title}
+          {titleText}
         </h2>
       )}
     </div>
