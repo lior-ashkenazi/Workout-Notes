@@ -3,12 +3,11 @@ import { addSidebarItemThunk } from "../store/index";
 
 import SidebarAddButton from "./SidebarAddButton";
 import SidebarItem from "./SidebarItem";
+import { useEffect } from "react";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.sidebarItems);
-  const bigstate = useSelector((state) => state);
-  console.log(bigstate);
 
   const handleWorkoutAdd = () => {
     dispatch(addSidebarItemThunk());
@@ -18,6 +17,9 @@ export default function Sidebar() {
     // dispatch(sidebarItemsActions.deleteSidebarItem(i));
     // TODO navigate to homepage
   };
+
+  console.log("tsipi");
+  console.log(state.data);
 
   const renderedWorkouts = Object.keys(state.data).map((sidebarItemId) => (
     <SidebarItem key={sidebarItemId} sidebarItemId={sidebarItemId} />

@@ -36,7 +36,7 @@ export default function CarouseCardTitle({ cardId }) {
             if (e.key === "Enter") handleTitleSubmit();
           }}
           autoFocus
-          className="w-full outline-0 border-b-2 border-stone-800 bg-stone-100"
+          className="w-full outline-0 border-b-2 border-stone-800 bg-transparent"
           placeholder="Workout Day"
         />
       ) : (

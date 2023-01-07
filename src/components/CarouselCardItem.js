@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cardItemsActions } from "../store";
 import { HiPencilAlt, HiTrash, HiPlus } from "react-icons/hi";
 
-export default function CarouselCardItem({ cardItemId }) {
+export default function CarouselCardItem({ cardItemId, onAdd }) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.cardItems);
   const [name, setName] = useState(state.data[cardItemId].name);
@@ -11,9 +11,6 @@ export default function CarouselCardItem({ cardItemId }) {
   const [reps, setReps] = useState(state.data[cardItemId].reps);
   const [technique, setTechnique] = useState(state.data[cardItemId].technique);
   const [editable, setEditable] = useState(state.data[cardItemId].editable);
-
-  console.log("item");
-  console.log(state.data);
 
   function handleNameChange(event) {
     setName(event.target.value);
@@ -50,7 +47,7 @@ export default function CarouselCardItem({ cardItemId }) {
       {editable ? (
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800"
+          className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2"
         >
           <div className="col-span-2 inline-flex gap-2">
             <label htmlFor="name" className="font-bold">
@@ -106,7 +103,10 @@ export default function CarouselCardItem({ cardItemId }) {
       ) : (
         <div className="relative group carousel-card-padding transition-colors duration-300 transform rounded-md hover:bg-stone-200 hover:text-stone-900">
           <span className="absolute top-0 -left-12 pt-2.5 pb-1.5 ml-1.5 rounded-md transition-colors duration-300 transform group-hover:bg-stone-200 group-hover:text-stone-900">
-            <button className="mr-0.5 text-transparent transition-colors duration-300 transform group-hover:text-stone-900">
+            <button
+              className="mr-0.5 text-transparent transition-colors duration-300 transform group-hover:text-stone-900"
+              onClick={onAdd}
+            >
               <HiPlus />
             </button>
             <button className="mr-0.5 text-transparent transition-colors duration-300 transform group-hover:text-stone-900">
