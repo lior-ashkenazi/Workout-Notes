@@ -3,11 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const sidebarItemsSlice = createSlice({
   name: "sidebarItems",
   initialState: {
-    data: [],
+    data: {},
   },
   reducers: {
     addSidebarItem(state, action) {
-      state.data.push(action.payload);
+      const id = action.payload;
+      state.data[id] = { text: "", editable: true };
     },
     // addWorkout: {
     //   reducer(state, action) {
@@ -18,12 +19,15 @@ const sidebarItemsSlice = createSlice({
     // },
     // },
     updateSidebarItems(state, action) {
-      state.data = action.payload;
+      const { id, info } = action.payload;
+      console.log("shimon");
+      console.log(info);
+      state.data[id] = info;
     },
-    // TODO should be in the extraReducer
-    deleteSidebarItem(state, action) {
-      state.data.splice(action.payload, 1);
-    },
+    // // TODO should be in the extraReducer
+    // deleteSidebarItem(state, action) {
+    //   state.data.splice(action.payload, 1);
+    // },
   },
 });
 

@@ -9,7 +9,7 @@ export const addSidebarItemThunk = createAsyncThunk(
   async (_, { getState, dispatch }) => {
     const id = uuidv4();
 
-    dispatch(actions.addSidebarItem({ text: "", editable: true, id }));
+    dispatch(actions.addSidebarItem(id));
 
     dispatch(addCarouselThunk(id));
   }

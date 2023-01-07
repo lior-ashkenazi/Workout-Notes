@@ -10,8 +10,6 @@ export const addCardThunk = createAsyncThunk(
     const id = uuidv4();
 
     const { payload: cardItemId } = await dispatch(addCardItemThunk());
-    console.log("ezra");
-    console.log(cardItemId);
 
     dispatch(actions.addCard({ id, cardItemId }));
 
