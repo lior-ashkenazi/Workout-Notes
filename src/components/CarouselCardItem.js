@@ -58,6 +58,7 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
               value={name}
               onChange={handleNameChange}
               className="rounded-sm w-full"
+              maxLength={21}
             />
           </div>
           <div className="inline-flex gap-2">
@@ -120,13 +121,15 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
             <span>
               <b>Name</b>: {name}
             </span>
-            <span>
-              <b>Sets</b>: {sets}
-            </span>
-            <span>
-              <b>Reps</b>: {reps}
-            </span>
-            <button>Technique</button>
+            <div className="flex justify-between gap-10">
+              <span>
+                <b>Sets</b>: {sets}
+              </span>
+              <span>
+                <b>Reps</b>: {reps}
+              </span>
+              <button>Technique</button>
+            </div>
           </div>
         </div>
       )}

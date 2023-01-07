@@ -15,7 +15,7 @@ export default function Carousel({ carouselId }) {
   const handleAddCardToCarousel = () => {
     console.log("hellooo");
     dispatch(addCardToCarouselThunk(carouselId)).then(() => {
-      setCurrentCardIndex(currentCardIndex + 1);
+      setCurrentCardIndex(state.data[carouselId].length - 1);
     });
   };
 
