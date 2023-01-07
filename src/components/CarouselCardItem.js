@@ -47,7 +47,7 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
       {editable ? (
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 mr-10 ml-4"
+          className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 mr-9 ml-3"
         >
           <div className="col-span-2 inline-flex gap-2">
             <label htmlFor="name" className="font-bold">
@@ -117,19 +117,17 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
               <HiPencilAlt />
             </button>
           </span>
-          <div className="flex justify-between">
-            <span>
+          <div className="grid grid-cols-11 justify-between">
+            <span className="col-span-5">
               <b>Name</b>: {name}
             </span>
-            <div className="flex justify-between gap-10">
-              <span>
-                <b>Sets</b>: {sets}
-              </span>
-              <span>
-                <b>Reps</b>: {reps}
-              </span>
-              <button>Technique</button>
-            </div>
+            <span className="col-span-2">
+              <b>Sets</b>: {sets}
+            </span>
+            <span className="col-span-2">
+              <b>Reps</b>: {reps}
+            </span>
+            <button className="col-span-2">Technique</button>
           </div>
         </div>
       )}
