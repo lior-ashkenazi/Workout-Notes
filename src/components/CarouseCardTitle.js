@@ -25,7 +25,7 @@ export default function CarouseCardTitle({ cardId }) {
 
   // TODO when we press enter is like submit
   return (
-    <div className="carousel-card-title">
+    <div className="carousel-card-title carousel-card-padding">
       {editable ? (
         <input
           type="text"
@@ -36,7 +36,7 @@ export default function CarouseCardTitle({ cardId }) {
             if (e.key === "Enter") handleTitleSubmit();
           }}
           autoFocus
-          className="w-full outline-0 border-b-2 border-stone-800 bg-stone-50"
+          className="w-full outline-0 border-b-2 border-stone-800 bg-stone-100"
           placeholder="Workout Day"
         />
       ) : (

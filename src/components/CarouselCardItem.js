@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { cardItemsActions } from "../store";
+import { HiPencilAlt, HiTrash, HiPlus } from "react-icons/hi";
 
 export default function CarouselCardItem({ cardItemId }) {
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ export default function CarouselCardItem({ cardItemId }) {
       {editable ? (
         <form
           onSubmit={handleSubmit}
-          className="grid grid-cols-4 gap-3 place-items-start"
+          className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800"
         >
           <div className="col-span-2 inline-flex gap-2">
             <label htmlFor="name" className="font-bold">
@@ -96,24 +97,37 @@ export default function CarouselCardItem({ cardItemId }) {
             />
             <button
               type="submit"
-              className="justify-self-end rounded-md bg-white px-2.5 py-0.5 text-stone-900 border border-stone-900 shadow font-semibold transition-colors duration-300 transform hover:bg-stone-100 active:bg-stone-200"
+              className="justify-self-end rounded-md bg-white px-2.5 py-0.5 text-stone-900 border border-stone-800 shadow font-semibold transition-colors duration-300 transform hover:bg-stone-100 active:bg-stone-200"
             >
               Save
             </button>
           </div>
         </form>
       ) : (
-        <div className="flex justify-between">
-          <span>
-            <b>Name</b>: {name}
+        <div className="relative group carousel-card-padding transition-colors duration-300 transform rounded-md hover:bg-stone-200 hover:text-stone-900">
+          <span className="absolute top-0 -left-12 pt-2.5 pb-1.5 ml-1.5 rounded-md transition-colors duration-300 transform group-hover:bg-stone-200 group-hover:text-stone-900">
+            <button className="mr-0.5 text-transparent transition-colors duration-300 transform group-hover:text-stone-900">
+              <HiPlus />
+            </button>
+            <button className="mr-0.5 text-transparent transition-colors duration-300 transform group-hover:text-stone-900">
+              <HiTrash />
+            </button>
+            <button className="text-transparent transition-colors duration-300 transform group-hover:text-stone-900">
+              <HiPencilAlt />
+            </button>
           </span>
-          <span>
-            <b>Sets</b>: {sets}
-          </span>
-          <span>
-            <b>Reps</b>: {reps}
-          </span>
-          <button>Technique</button>
+          <div className="flex justify-between">
+            <span>
+              <b>Name</b>: {name}
+            </span>
+            <span>
+              <b>Sets</b>: {sets}
+            </span>
+            <span>
+              <b>Reps</b>: {reps}
+            </span>
+            <button>Technique</button>
+          </div>
         </div>
       )}
     </>

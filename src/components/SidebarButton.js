@@ -28,12 +28,9 @@ export default function SidebarButton({
         >
           <HiPencilAlt />
         </button>
-        {/*<button*/}
-        {/*  onClick={onDelete}*/}
-        {/*  className="text-transparent transition-colors duration-300 transform group-hover:text-stone-800"*/}
-        {/*>*/}
-        {/*  <HiTrash />*/}
-        {/*</button>*/}
+        <button className="text-transparent transition-colors duration-300 transform group-hover:text-stone-800">
+          <HiTrash />
+        </button>
       </span>
     </div>
   );

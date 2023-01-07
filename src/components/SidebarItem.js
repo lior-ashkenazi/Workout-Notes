@@ -14,11 +14,11 @@ export default function SidebarItem({ sidebarItemId }) {
     setText(event.target.value);
   };
 
-  const handleTextEdit = (i) => {
+  const handleTextEdit = () => {
     setEditable(true);
   };
 
-  const handleTextSubmit = (i) => {
+  const handleTextSubmit = () => {
     setEditable(false);
 
     const updatedInfo = { text, editable: false };

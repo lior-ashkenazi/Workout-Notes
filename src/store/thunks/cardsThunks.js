@@ -16,3 +16,12 @@ export const addCardThunk = createAsyncThunk(
     return id;
   }
 );
+
+export const addCardItemToCardThunk = createAsyncThunk(
+  "cards/addCard",
+  async (id, { getState, dispatch }) => {
+    const { payload: cardItemId } = await dispatch(addCardItemThunk());
+
+    dispatch(actions.addCardItemToCard({ id, cardItemId }));
+  }
+);

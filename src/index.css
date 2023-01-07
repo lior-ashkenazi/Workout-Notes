@@ -20,15 +20,15 @@
     }
 
     .carousel-bg > div {
-        @apply bg-stone-50
+        @apply bg-stone-100
     }
 
     .carousel-colors {
-        @apply text-stone-800 border-stone-800
+        @apply text-stone-800
     }
 
     .carousel-card {
-        @apply flex flex-col w-[40%] min-h-[85%] pt-10 px-16 pb-16 rounded-lg shadow-lg transition-all duration-300 overflow-auto gap-y-12
+        @apply flex flex-col w-[40%] min-h-[85%] pt-10 pl-14 pr-3.5 pb-16 rounded-lg shadow-lg transition-all duration-300 overflow-auto gap-y-8
     }
 
     .carousel-card-title * {
@@ -37,6 +37,10 @@
 
     .arrow-icon {
         @apply text-5xl drop-shadow-lg
+    }
+
+    .carousel-card-padding {
+        @apply pl-4 pr-10 py-2
     }
 
 }
