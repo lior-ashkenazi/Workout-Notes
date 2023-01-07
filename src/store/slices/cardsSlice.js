@@ -15,7 +15,6 @@ const cardsSlice = createSlice({
     },
     addCardItemToCard(state, action) {
       const { id, cardItemId } = action.payload;
-      console.log("ben zona");
       state.data[id].cardItemsId.push(cardItemId);
     },
     updateCardTitle(state, action) {

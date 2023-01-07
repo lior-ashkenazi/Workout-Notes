@@ -32,7 +32,6 @@ export default function SidebarItem({ sidebarItemId }) {
     );
   };
 
-  // TODO when we press enter is like submit
   return (
     <>
       {editable ? (

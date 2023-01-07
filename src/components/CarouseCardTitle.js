@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { cardsActions } from "../store";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -7,6 +7,11 @@ export default function CarouseCardTitle({ cardId }) {
   const state = useSelector((state) => state.reducer.cards);
   const [text, setText] = useState(state.data[cardId].title.text);
   const [editable, setEditable] = useState(state.data[cardId].title.editable);
+
+  useEffect(() => {
+    setText(state.data[cardId].title.text);
+    setEditable(state.data[cardId].title.editable);
+  }, [cardId]);
 
   const handleTitleChange = (event) => {
     setText(event.target.value);
@@ -25,7 +30,6 @@ export default function CarouseCardTitle({ cardId }) {
     dispatch(cardsActions.updateCardTitle({ id: cardId, info: updatedInfo }));
   };
 
-  // TODO when we press enter is like submit
   return (
     <div className="carousel-card-title carousel-card-padding">
       {editable ? (
