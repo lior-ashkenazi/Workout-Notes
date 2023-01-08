@@ -15,16 +15,12 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
   const [technique, setTechnique] = useState(state.data[cardItemId].technique);
   const [editable, setEditable] = useState(state.data[cardItemId].editable);
 
-  console.log("balbalehu");
-  console.log(editable);
-
   useEffect(() => {
-    if (editable) {
-      buttonsDisabledDispatch({
-        type: SET_BUTTONS_DISABLED,
-        payload: true,
-      });
-    }
+    const payload = editable;
+    buttonsDisabledDispatch({
+      type: SET_BUTTONS_DISABLED,
+      payload,
+    });
   }, [editable]);
 
   const handleNameChange = (event) => {
@@ -69,11 +65,6 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
       alert("Technique must be a YouTube video link.");
       return;
     }
-
-    buttonsDisabledDispatch({
-      type: SET_BUTTONS_DISABLED,
-      payload: false,
-    });
 
     setEditable(false);
 
