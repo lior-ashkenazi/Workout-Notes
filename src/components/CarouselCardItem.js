@@ -18,7 +18,14 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
   console.log("balbalehu");
   console.log(editable);
 
-  useEffect(() => {}, [editable]);
+  useEffect(() => {
+    if (editable) {
+      buttonsDisabledDispatch({
+        type: SET_BUTTONS_DISABLED,
+        payload: true,
+      });
+    }
+  }, [editable]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -37,10 +44,6 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
   };
 
   const handleEdit = () => {
-    buttonsDisabledDispatch({
-      type: SET_BUTTONS_DISABLED,
-      payload: true,
-    });
     setEditable(true);
   };
 
