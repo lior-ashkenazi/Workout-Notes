@@ -66,8 +66,6 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
       return;
     }
 
-    setEditable(false);
-
     const updatedInfo = { name, sets, reps, technique, editable: false };
     dispatch(
       cardItemsActions.updateCardItem({
@@ -75,6 +73,8 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
         info: updatedInfo,
       })
     );
+
+    setEditable(false);
   };
 
   return (

@@ -37,6 +37,7 @@ export default function CarouselCardItemForm({
           value={sets}
           onChange={onSetsChange}
           className="rounded-md w-full"
+          maxLength={5}
         />
       </div>
       <div className="inline-flex gap-2">
@@ -49,6 +50,7 @@ export default function CarouselCardItemForm({
           value={reps}
           onChange={onRepsChange}
           className="rounded-md w-full"
+          maxLength={5}
         />
       </div>
       <div className="col-span-full inline-flex gap-2 w-full">
