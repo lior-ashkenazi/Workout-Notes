@@ -1,18 +1,30 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CarouseCardTitle from "./CarouseCardTitle";
 import CarouselCardItem from "./CarouselCardItem";
-import { addCardItemToCardThunk } from "../store";
+import { addCardItemToCardThunk, deleteCardItemFromCardThunk } from "../store";
 import { HiPlus, HiTrash } from "react-icons/hi";
 import { ButtonsDisabledContext } from "./Carousel";
 
 export default function CarouselCard({ cardId, onAdd }) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.cards);
+  const [cardItemDeletable, setCardItemDeletable] = useState(
+    1 < state.data[cardId].cardItemsId.length
+  );
+
+  useEffect(() => {
+    setCardItemDeletable(1 < state.data[cardId].cardItemsId.length);
+  }, [state.data]);
+
   const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
 
   const handleCardItemAdd = (i) => {
     dispatch(addCardItemToCardThunk({ id: cardId, i }));
+  };
+
+  const handleCardItemDelete = (cardItemId, i) => {
+    dispatch(deleteCardItemFromCardThunk({ id: cardId, cardItemId, i }));
   };
 
   const renderedCardItems = state.data[cardId].cardItemsId.map(
@@ -21,6 +33,8 @@ export default function CarouselCard({ cardId, onAdd }) {
         key={cardItemId}
         cardItemId={cardItemId}
         onAdd={() => handleCardItemAdd(i)}
+        onDelete={() => handleCardItemDelete(cardItemId, i)}
+        cardItemDeletable={cardItemDeletable}
       />
     )
   );

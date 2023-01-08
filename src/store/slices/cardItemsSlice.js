@@ -20,6 +20,10 @@ const cardItemsSlice = createSlice({
       const { id, info } = action.payload;
       state.data[id] = info;
     },
+    deleteCardItem(state, action) {
+      const id = action.payload;
+      delete state.data[id];
+    },
   },
 });
 

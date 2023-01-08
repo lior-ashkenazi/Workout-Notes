@@ -5,7 +5,12 @@ import CarouselCardItemForm from "./CarouselCardItemForm";
 import CarouselCardRenderedItem from "./CarouselCardRenderedItem";
 import { ButtonsDisabledContext, SET_BUTTONS_DISABLED } from "./Carousel";
 
-export default function CarouselCardItem({ cardItemId, onAdd }) {
+export default function CarouselCardItem({
+  cardItemId,
+  onAdd,
+  onDelete,
+  cardItemDeletable,
+}) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.cardItems);
   const { buttonsDisabledDispatch } = useContext(ButtonsDisabledContext);
@@ -98,8 +103,9 @@ export default function CarouselCardItem({ cardItemId, onAdd }) {
           reps={reps}
           technique={technique}
           onAdd={onAdd}
-          onDelete={true}
+          onDelete={onDelete}
           onEdit={handleEdit}
+          cardItemDeletable={cardItemDeletable}
         />
       )}
     </>

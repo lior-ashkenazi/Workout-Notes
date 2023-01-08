@@ -1,14 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { actions } from "../slices/carouselsSlice";
-import { addCardThunk } from "./cardsThunks";
-import { addCardItemThunk } from "./cardsItemsThunks";
+import { carouselsActions, addCardThunk } from "../index";
 
 export const addCarouselThunk = createAsyncThunk(
   "carousels/addCarousel",
   async (id, { getState, dispatch }) => {
     const { payload: cardId } = await dispatch(addCardThunk());
 
-    dispatch(actions.addCarousel({ id, cardId }));
+    dispatch(carouselsActions.addCarousel({ id, cardId }));
   }
 );
 
@@ -17,6 +15,6 @@ export const addCardToCarouselThunk = createAsyncThunk(
   async (id, { getState, dispatch }) => {
     const { payload: cardId } = await dispatch(addCardThunk());
 
-    dispatch(actions.addCardToCarousel({ id, cardId }));
+    dispatch(carouselsActions.addCardToCarousel({ id, cardId }));
   }
 );
