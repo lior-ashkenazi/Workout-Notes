@@ -1,19 +1,23 @@
+import { useContext } from "react";
 import { HiArrowCircleLeft, HiArrowCircleRight } from "react-icons/hi";
+import { ButtonsDisabledContext } from "./Carousel";
 
 export default function CarouselArrow({
   onClick,
   isDefaultDirection,
   showArrow,
 }) {
+  const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
+
   if (!showArrow)
     return (
-      <button className="cursor-default">
+      <button disabled={true}>
         <HiArrowCircleLeft className="arrow-icon invisible" />
       </button>
     );
 
   return (
-    <button onClick={onClick}>
+    <button disabled={buttonsDisabledState.buttonsDisabled} onClick={onClick}>
       {isDefaultDirection ? (
         <HiArrowCircleLeft className="arrow-icon" />
       ) : (

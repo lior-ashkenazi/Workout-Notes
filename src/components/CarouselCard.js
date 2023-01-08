@@ -1,14 +1,15 @@
+import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CarouseCardTitle from "./CarouseCardTitle";
 import CarouselCardItem from "./CarouselCardItem";
 import { addCardItemToCardThunk } from "../store";
 import { HiPlus, HiTrash } from "react-icons/hi";
-import { useEffect } from "react";
+import { ButtonsDisabledContext } from "./Carousel";
 
 export default function CarouselCard({ cardId, onAdd }) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.cards);
-  console.log(state);
+  const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
 
   const handleCardItemAdd = (i) => {
     dispatch(addCardItemToCardThunk({ id: cardId, i }));
@@ -27,10 +28,14 @@ export default function CarouselCard({ cardId, onAdd }) {
   return (
     <div className="relative carousel-card">
       <span className="absolute top-4 right-4 text-3xl text-stone-600">
-        <button className="transition-colors duration-300 transform hover:text-stone-700 active:text-stone-800">
+        <button
+          disabled={buttonsDisabledState.buttonsDisabled}
+          className="transition-colors duration-300 transform hover:text-stone-700 active:text-stone-800"
+        >
           <HiTrash />
         </button>
         <button
+          disabled={buttonsDisabledState.buttonsDisabled}
           className="transition-colors duration-300 transform hover:text-stone-700 active:text-stone-800"
           onClick={onAdd}
         >
