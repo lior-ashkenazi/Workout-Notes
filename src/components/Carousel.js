@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CarouselCard from "./CarouselCard";
 import CarouselArrow from "./CarouselArrow";
 import { addCardToCarouselThunk } from "../store";
