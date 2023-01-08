@@ -6,9 +6,17 @@ import { addCardItemToCardThunk, deleteCardItemFromCardThunk } from "../store";
 import { HiPlus, HiTrash } from "react-icons/hi";
 import { ButtonsDisabledContext } from "./Carousel";
 
-export default function CarouselCard({ cardId, onAdd }) {
+export default function CarouselCard({
+  cardId,
+  onAdd,
+  onDelete,
+  cardDeletable,
+}) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.cards);
+  console.log("step something");
+  console.log(cardId);
+  console.log(state);
   const [cardItemDeletable, setCardItemDeletable] = useState(
     1 < state.data[cardId].cardItemsId.length
   );
@@ -23,8 +31,8 @@ export default function CarouselCard({ cardId, onAdd }) {
     dispatch(addCardItemToCardThunk({ id: cardId, i }));
   };
 
-  const handleCardItemDelete = (cardItemId, i) => {
-    dispatch(deleteCardItemFromCardThunk({ id: cardId, cardItemId, i }));
+  const handleCardItemDelete = (i) => {
+    dispatch(deleteCardItemFromCardThunk({ id: cardId, i }));
   };
 
   const renderedCardItems = state.data[cardId].cardItemsId.map(
@@ -33,7 +41,7 @@ export default function CarouselCard({ cardId, onAdd }) {
         key={cardItemId}
         cardItemId={cardItemId}
         onAdd={() => handleCardItemAdd(i)}
-        onDelete={() => handleCardItemDelete(cardItemId, i)}
+        onDelete={() => handleCardItemDelete(i)}
         cardItemDeletable={cardItemDeletable}
       />
     )
@@ -43,14 +51,22 @@ export default function CarouselCard({ cardId, onAdd }) {
     <div className="relative carousel-card">
       <span className="absolute top-4 right-4 text-3xl text-stone-600">
         <button
-          disabled={buttonsDisabledState.buttonsDisabled}
-          className="transition-colors duration-300 transform hover:text-stone-700 active:text-stone-800"
+          disabled={buttonsDisabledState.buttonsDisabled || !cardDeletable}
+          className={`transition-colors duration-300 transform ${
+            !buttonsDisabledState.buttonsDisabled &&
+            cardDeletable &&
+            "hover:text-stone-700 active:text-stone-800"
+          }`}
+          onClick={onDelete}
         >
           <HiTrash />
         </button>
         <button
           disabled={buttonsDisabledState.buttonsDisabled}
-          className="transition-colors duration-300 transform hover:text-stone-700 active:text-stone-800"
+          className={`transition-colors duration-300 transform ${
+            !buttonsDisabledState.buttonsDisabled &&
+            "hover:text-stone-700 active:text-stone-800"
+          }`}
           onClick={onAdd}
         >
           <HiPlus />

@@ -13,15 +13,19 @@ const cardsSlice = createSlice({
         cardItemsId: [cardItemId],
       };
     },
-    addCardItemToCard(state, action) {
-      const { id, i, cardItemId } = action.payload;
-      state.data[id].cardItemsId.splice(i + 1, 0, cardItemId);
+    deleteCard(state, action) {
+      const id = action.payload;
+      delete state.data[id];
     },
     updateCardTitle(state, action) {
       const { id, info } = action.payload;
       state.data[id].title = info;
     },
-    deleteCardItemToCard(state, action) {
+    addCardItemToCard(state, action) {
+      const { id, i, cardItemId } = action.payload;
+      state.data[id].cardItemsId.splice(i + 1, 0, cardItemId);
+    },
+    deleteCardItemFromCard(state, action) {
       const { id, i } = action.payload;
       state.data[id].cardItemsId.splice(i, 1);
     },

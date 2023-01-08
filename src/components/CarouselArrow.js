@@ -9,9 +9,6 @@ export default function CarouselArrow({
 }) {
   const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
 
-  console.log("rina");
-  console.log(buttonsDisabledState.buttonsDisabled);
-
   if (!showArrow)
     return (
       <button disabled={buttonsDisabledState.buttonsDisabled}>

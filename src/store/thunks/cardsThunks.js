@@ -25,11 +25,28 @@ export const addCardItemToCardThunk = createAsyncThunk(
   }
 );
 
+export const deleteCardThunk = createAsyncThunk(
+  "cards/addCard",
+  async (id, { getState, dispatch }) => {
+    const state = getState().reducer.cards;
+
+    state.data[id].cardItemsId.forEach((_, i) =>
+      deleteCardItemFromCardThunk(id, i)
+    );
+
+    dispatch(cardsActions.deleteCard(id));
+
+    return id;
+  }
+);
+
 export const deleteCardItemFromCardThunk = createAsyncThunk(
   "cards/addCardItemToCard",
-  async ({ id, i, cardItemId }, { getState, dispatch }) => {
-    dispatch(deleteCardItemThunk(cardItemId));
+  async ({ id, i }, { getState, dispatch }) => {
+    const state = getState().reducer.cards;
 
-    dispatch(cardsActions.deleteCardItemToCard({ id, i }));
+    dispatch(deleteCardItemThunk(state.data[id].cardItemsId[i]));
+
+    dispatch(cardsActions.deleteCardItemFromCard({ id, i }));
   }
 );

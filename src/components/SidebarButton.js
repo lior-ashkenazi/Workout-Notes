@@ -21,14 +21,11 @@ export default function SidebarButton({
         </button>
       </Link>
       {/*container for edit and delete buttons*/}
-      <span className="absolute top-0 right-0 mt-2.5 mr-2">
-        <button
-          onClick={onEdit}
-          className="mr-1 text-transparent transition-colors duration-300 transform group-hover:text-stone-800"
-        >
+      <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform top-0 right-0 mt-2.5 mr-2">
+        <button onClick={onEdit} className="mr-1">
           <HiPencilAlt />
         </button>
-        <button className="text-transparent transition-colors duration-300 transform group-hover:text-stone-800">
+        <button className="">
           <HiTrash />
         </button>
       </span>
