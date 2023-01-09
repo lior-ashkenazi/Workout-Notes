@@ -67,10 +67,6 @@ export default function Carousel({carouselId}) {
     validNextArrow && setCurrentCardIndex(currentCardIndex + 1);
   };
 
-  console.log("beforecarouselrender");
-  console.log(currentCardIndex);
-  console.log(state.data[carouselId]);
-  console.log(state.data[carouselId][currentCardIndex]);
   return (
       <ButtonsDisabledContext.Provider
           value={{
