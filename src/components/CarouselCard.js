@@ -16,7 +16,7 @@ export default function CarouselCard({
   const state = useSelector((state) => state.reducer.cards);
   console.log("step something");
   console.log(cardId);
-  console.log(state);
+  console.log(state.data);
   const [cardItemDeletable, setCardItemDeletable] = useState(
     1 < state.data[cardId].cardItemsId.length
   );
@@ -49,14 +49,14 @@ export default function CarouselCard({
 
   return (
     <div className="relative carousel-card">
-      <span className="absolute top-4 right-4 text-3xl text-stone-600">
+      <span className="absolute top-4 right-4 text-3xl text-stone-500">
         <button
           disabled={buttonsDisabledState.buttonsDisabled || !cardDeletable}
           className={`transition-colors duration-300 transform ${
             !buttonsDisabledState.buttonsDisabled &&
             cardDeletable &&
-            "hover:text-stone-700 active:text-stone-800"
-          }`}
+            "hover:text-stone-700"
+          } active:text-stone-800`}
           onClick={onDelete}
         >
           <HiTrash />
@@ -64,9 +64,8 @@ export default function CarouselCard({
         <button
           disabled={buttonsDisabledState.buttonsDisabled}
           className={`transition-colors duration-300 transform ${
-            !buttonsDisabledState.buttonsDisabled &&
-            "hover:text-stone-700 active:text-stone-800"
-          }`}
+            !buttonsDisabledState.buttonsDisabled && "hover:text-stone-700"
+          } active:text-stone-800`}
           onClick={onAdd}
         >
           <HiPlus />

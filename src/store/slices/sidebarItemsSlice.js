@@ -10,24 +10,16 @@ const sidebarItemsSlice = createSlice({
       const id = action.payload;
       state.data[id] = { text: "", editable: true };
     },
-    // addWorkout: {
-    //   reducer(state, action) {
-    //     state.data.push(action.payload);
-    //   },
-    // prepare(workout) {
-    //   return { payload: { ...workout, id: uuidv4() } };
-    // },
-    // },
-    updateSidebarItems(state, action) {
+    updateSidebarItem(state, action) {
       const { id, info } = action.payload;
       console.log("shimon");
       console.log(info);
       state.data[id] = info;
     },
-    // // TODO should be in the extraReducer
-    // deleteSidebarItem(state, action) {
-    //   state.data.splice(action.payload, 1);
-    // },
+    deleteSidebarItem(state, action) {
+      const id = action.payload;
+      delete state.data[id];
+    },
   },
 });
 

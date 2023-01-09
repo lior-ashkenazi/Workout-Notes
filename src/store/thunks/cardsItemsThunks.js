@@ -8,16 +8,16 @@ export const addCardItemThunk = createAsyncThunk(
   async (_, { getState, dispatch }) => {
     const id = uuidv4();
 
-    dispatch(cardItemsActions.addCardItem(id));
+    await dispatch(cardItemsActions.addCardItem(id));
 
     return id;
   }
 );
 
 export const deleteCardItemThunk = createAsyncThunk(
-  "cardItems/addCardItem",
+  "cardItems/deleteCardItem",
   async (id, { getState, dispatch }) => {
-    dispatch(cardItemsActions.deleteCardItem(id));
+    await dispatch(cardItemsActions.deleteCardItem(id));
 
     return id;
   }

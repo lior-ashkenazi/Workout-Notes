@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addSidebarItemThunk } from "../store/index";
+import {useDispatch, useSelector} from "react-redux";
+import {addSidebarItemThunk, deleteSidebarItemThunk} from "../store/index";
 
 import SidebarAddButton from "./SidebarAddButton";
 import SidebarItem from "./SidebarItem";
-import { useEffect } from "react";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -13,26 +12,27 @@ export default function Sidebar() {
     dispatch(addSidebarItemThunk());
   };
 
-  const handleWorkoutDelete = (i) => {
-    // dispatch(sidebarItemsActions.deleteSidebarItem(i));
-    // TODO navigate to homepage
+  const handleWorkoutDelete = (sidebarItemId) => {
+    dispatch(deleteSidebarItemThunk(sidebarItemId));
   };
 
-  console.log("tsipi");
-  console.log(state.data);
 
   const renderedWorkouts = Object.keys(state.data).map((sidebarItemId) => (
-    <SidebarItem key={sidebarItemId} sidebarItemId={sidebarItemId} />
+      <SidebarItem
+          key={sidebarItemId}
+          sidebarItemId={sidebarItemId}
+          onDelete={() => handleWorkoutDelete(sidebarItemId)}
+      />
   ));
 
   return (
-    <div className="sidebar">
-      <SidebarAddButton onClick={handleWorkoutAdd}>
-        Add Workout Program
-      </SidebarAddButton>
-      <ul className="flex flex-col flex-1 font-medium gap-4">
-        {renderedWorkouts}
-      </ul>
-    </div>
+      <div className="sidebar">
+        <SidebarAddButton onClick={handleWorkoutAdd}>
+          Add Workout Program
+        </SidebarAddButton>
+        <ul className="flex flex-col flex-1 font-medium gap-4">
+          {renderedWorkouts}
+        </ul>
+      </div>
   );
 }

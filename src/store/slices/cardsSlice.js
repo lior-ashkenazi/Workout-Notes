@@ -13,10 +13,6 @@ const cardsSlice = createSlice({
         cardItemsId: [cardItemId],
       };
     },
-    deleteCard(state, action) {
-      const id = action.payload;
-      delete state.data[id];
-    },
     updateCardTitle(state, action) {
       const { id, info } = action.payload;
       state.data[id].title = info;
@@ -28,6 +24,12 @@ const cardsSlice = createSlice({
     deleteCardItemFromCard(state, action) {
       const { id, i } = action.payload;
       state.data[id].cardItemsId.splice(i, 1);
+    },
+    deleteCard(state, action) {
+      const id = action.payload;
+      console.log("korver");
+      console.log(id);
+      delete state.data[id];
     },
   },
 });

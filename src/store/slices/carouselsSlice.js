@@ -10,6 +10,10 @@ const carouselsSlice = createSlice({
       const { id, cardId } = action.payload;
       state.data[id] = [cardId];
     },
+    deleteCarousel(state, action) {
+      const id = action.payload;
+      delete state.data[id];
+    },
     addCardToCarousel(state, action) {
       const { id, cardId } = action.payload;
       state.data[id].push(cardId);

@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import { sidebarItemsActions } from "../store";
 
-export default function SidebarItem({ sidebarItemId }) {
+export default function SidebarItem({ sidebarItemId, onDelete }) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.sidebarItems);
   const [text, setText] = useState(state.data[sidebarItemId].text);
@@ -25,7 +25,7 @@ export default function SidebarItem({ sidebarItemId }) {
 
     const updatedInfo = { text, editable: false };
     dispatch(
-      sidebarItemsActions.updateSidebarItems({
+      sidebarItemsActions.updateSidebarItem({
         id: sidebarItemId,
         info: updatedInfo,
       })
@@ -49,7 +49,7 @@ export default function SidebarItem({ sidebarItemId }) {
         <SidebarButton
           secondary
           onEdit={handleTextEdit}
-          // onDelete={() => handleWorkoutDelete(i)}
+          onDelete={onDelete}
           pageId={sidebarItemId}
         >
           {text}

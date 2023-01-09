@@ -19,20 +19,28 @@ export default function CarouselCardRenderedItem({
       <span className="absolute opacity-0 top-0 -left-12 pt-2.5 pb-1.5 ml-1.5 rounded-md transition-opacity transition-all duration-300 bg-stone-100 transform group-hover:opacity-100 group-hover:bg-stone-200">
         <button
           disabled={buttonsDisabledState.buttonsDisabled}
-          className="mr-0.5"
+          className={`mr-0.5 ${
+            !buttonsDisabledState.buttonsDisabled && "hover:text-stone-800"
+          }`}
           onClick={onAdd}
         >
           <HiPlus />
         </button>
         <button
           disabled={buttonsDisabledState.buttonsDisabled || !cardItemDeletable}
-          className="mr-0.5"
+          className={`mr-0.5 ${!(
+            buttonsDisabledState.buttonsDisabled ||
+            (!cardItemDeletable && "hover:text-stone-800")
+          )}`}
           onClick={onDelete}
         >
           <HiTrash />
         </button>
         <button
           disabled={buttonsDisabledState.buttonsDisabled}
+          className={`${
+            !buttonsDisabledState.buttonsDisabled && "hover:text-stone-800"
+          }`}
           onClick={onEdit}
         >
           <HiPencilAlt />
