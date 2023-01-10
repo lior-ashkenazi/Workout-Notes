@@ -44,9 +44,11 @@ export const deleteCardItemFromCardThunk = createAsyncThunk(
     "cards/deleteCardItemFromCard",
     async ({id, i}, {getState, dispatch}) => {
         const state = getState().reducer.cards;
+        console.log("when?");
 
         await dispatch(deleteCardItemThunk(state.data[id].cardItemsId[i]));
 
+        console.log("jimmybutler");
         await dispatch(cardsActions.deleteCardItemFromCard({id, i}));
     }
 );

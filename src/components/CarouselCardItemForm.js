@@ -12,7 +12,7 @@ export default function CarouselCardItemForm({
   return (
     <form
       onSubmit={onSubmit}
-      className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 mr-9 ml-3 text-stone-800"
+      className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 mr-6 text-stone-800"
     >
       <div className="col-span-2 inline-flex gap-2">
         <label htmlFor="name" className="font-bold">
@@ -63,12 +63,13 @@ export default function CarouselCardItemForm({
           value={technique}
           onChange={onTechniqueChange}
           className="rounded-md w-full"
+          placeholder={"YouTube Link"}
         />
         <button
           type="submit"
-          className="justify-self-end rounded-md bg-white px-2.5 py-0.5 text-stone-900 border border-stone-800 shadow font-semibold transition-colors duration-300 transform hover:bg-stone-100 active:bg-stone-200"
+          className="justify-self-end rounded-md bg-white px-2.5 py-0.5 text-stone-900 border border-stone-800 transition-colors duration-300 transform hover:bg-stone-100 active:bg-stone-200"
         >
-          Save
+          <b>Save</b>
         </button>
       </div>
     </form>

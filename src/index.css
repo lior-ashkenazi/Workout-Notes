@@ -47,7 +47,7 @@
     }
 
     .carousel-card-item-colors > span > button {
-        @apply text-stone-700 transition-colors duration-300 transform hover:bg-stone-200 active:text-stone-900
+        @apply text-stone-600 transition-colors duration-300 transform hover:bg-stone-200 active:text-black
     }
 
     .arrow-icon {

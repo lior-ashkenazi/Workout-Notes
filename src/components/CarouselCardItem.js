@@ -14,11 +14,15 @@ export default function CarouselCardItem({
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.cardItems);
   const { buttonsDisabledDispatch } = useContext(ButtonsDisabledContext);
-  const [name, setName] = useState(state.data[cardItemId].name);
-  const [sets, setSets] = useState(state.data[cardItemId].sets);
-  const [reps, setReps] = useState(state.data[cardItemId].reps);
-  const [technique, setTechnique] = useState(state.data[cardItemId].technique);
-  const [editable, setEditable] = useState(state.data[cardItemId].editable);
+  console.log("kobebryant");
+  console.log(cardItemId);
+  console.log(state.data);
+  console.log(state.data[cardItemId]);
+  const [name, setName] = useState(state.data[cardItemId]?.name);
+  const [sets, setSets] = useState(state.data[cardItemId]?.sets);
+  const [reps, setReps] = useState(state.data[cardItemId]?.reps);
+  const [technique, setTechnique] = useState(state.data[cardItemId]?.technique);
+  const [editable, setEditable] = useState(state.data[cardItemId]?.editable);
 
   useEffect(() => {
     const payload = editable;
@@ -59,7 +63,7 @@ export default function CarouselCardItem({
     const validRangePattern =
       /^(?:[1-9]|[1-9]\d)(?:-(?:[1-9]|[1-9]\d)(?:\d)?)?$/;
     const validYoutubeLinkPattern =
-      /^(https?:\/\/)?((www|m)\.)?(youtube\.com|youtu\.be)(\/\S*)?$/;
+      /^(?:https?:\/\/)?(?:www\.|m\.|(?:[a-z]{2}\.)?)?(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([\w-]{11})(?:[^\s]*)?$/;
 
     if (!sets.match(validRangePattern) || !reps.match(validRangePattern)) {
       alert("Sets or reps are in an invalid form.");
@@ -70,6 +74,8 @@ export default function CarouselCardItem({
       alert("Technique must be a YouTube video link.");
       return;
     }
+
+    setTechnique(technique ? technique.match(validYoutubeLinkPattern)[1] : "");
 
     const updatedInfo = { name, sets, reps, technique, editable: false };
     dispatch(
