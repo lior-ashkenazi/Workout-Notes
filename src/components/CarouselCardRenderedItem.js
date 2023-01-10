@@ -32,15 +32,19 @@ export default function CarouselCardRenderedItem({
   return (
     <div
       className={`${
-        techniqueUrlDropdownOpen ? "h-96" : "h-12"
+        techniqueUrlDropdownOpen ? "h-[26rem]" : "h-12"
       } transition-height duration-250 ease-in-out`}
     >
       <div className="relative group carousel-card-padding rounded-md carousel-card-item-colors">
-        <span className="absolute opacity-0 top-0 -left-12 pt-2.5 pb-2 ml-1.5 rounded-md transition-opacity transition-all duration-300 bg-stone-100 transform group-hover:opacity-100 group-hover:bg-stone-200">
+        <span className="absolute opacity-0 top-0 -left-12 pt-2.5 pb-2 ml-1.5 rounded-md transition-all duration-300 transform bg-stone-100 group-hover:opacity-100 group-hover:bg-stone-200">
           <button
-            disabled={buttonsDisabledState.buttonsDisabled}
-            className={`mr-0.5 ${
-              !buttonsDisabledState.buttonsDisabled && "hover:text-stone-800"
+            disabled={
+              buttonsDisabledState.buttonsDisabled || techniqueUrlDropdownOpen
+            }
+            className={`mr-0.5   ${
+              !(
+                buttonsDisabledState.buttonsDisabled || techniqueUrlDropdownOpen
+              ) && "hover:text-stone-800"
             }`}
             onClick={onAdd}
           >
@@ -48,20 +52,29 @@ export default function CarouselCardRenderedItem({
           </button>
           <button
             disabled={
-              buttonsDisabledState.buttonsDisabled || !cardItemDeletable
+              buttonsDisabledState.buttonsDisabled ||
+              !cardItemDeletable ||
+              techniqueUrlDropdownOpen
             }
             className={`mr-0.5 ${
-              !(buttonsDisabledState.buttonsDisabled || !cardItemDeletable) &&
-              "hover:text-stone-800"
+              !(
+                buttonsDisabledState.buttonsDisabled ||
+                !cardItemDeletable ||
+                techniqueUrlDropdownOpen
+              ) && "hover:text-stone-800"
             }`}
             onClick={onDelete}
           >
             <HiTrash />
           </button>
           <button
-            disabled={buttonsDisabledState.buttonsDisabled}
+            disabled={
+              buttonsDisabledState.buttonsDisabled || techniqueUrlDropdownOpen
+            }
             className={`${
-              !buttonsDisabledState.buttonsDisabled && "hover:text-stone-800"
+              !(
+                buttonsDisabledState.buttonsDisabled || techniqueUrlDropdownOpen
+              ) && "hover:text-stone-800"
             }`}
             onClick={onEdit}
           >
@@ -82,8 +95,8 @@ export default function CarouselCardRenderedItem({
             <button
               type="submit"
               disabled={!techniqueUrl}
-              className={`relative col-span-2 pr-3.5 rounded-md bg-stone-50 text-stone-900 border border-stone-800 transition-colors duration-300 transform ${
-                techniqueUrl && "hover:bg-red-900 active:bg-stone-200"
+              className={`relative col-span-2 pr-3.5 rounded-md bg-stone-50 text-stone-900 border border-stone-800 transition-colors duration-300 transform group-hover:bg-stone-200 ${
+                techniqueUrl && "hover:!bg-stone-300 active:bg-stone-200"
               }`}
               onClick={handleTechniqueUrlDropdownClick}
             >

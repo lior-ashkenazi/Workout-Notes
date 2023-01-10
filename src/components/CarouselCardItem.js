@@ -18,7 +18,7 @@ export default function CarouselCardItem({
   const [sets, setSets] = useState(state.data[cardItemId]?.sets);
   const [reps, setReps] = useState(state.data[cardItemId]?.reps);
   const [techniqueUrl, setTechniqueUrl] = useState(
-    state.data[cardItemId]?.technique
+    state.data[cardItemId]?.techniqueUrl
   );
   const [editable, setEditable] = useState(state.data[cardItemId]?.editable);
 
