@@ -6,7 +6,7 @@ import {
   HiChevronUp,
 } from "react-icons/hi";
 import { ButtonsDisabledContext } from "./Carousel";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CarouselCardItemYouTubeDiv from "./CarouselCardItemYouTubeDiv";
 
 export default function CarouselCardRenderedItem({
@@ -29,10 +29,12 @@ export default function CarouselCardRenderedItem({
     setTechniqueUrlDropdownOpen(!techniqueUrlDropdownOpen);
   };
 
+  useEffect(() => {}, [techniqueUrlDropdownOpen]);
+
   return (
     <div
       className={`${
-        techniqueUrlDropdownOpen ? "h-[26rem]" : "h-12"
+        techniqueUrlDropdownOpen ? "h-12 mb-[24rem]" : "h-12"
       } transition-height duration-250 ease-in-out`}
     >
       <div className="relative group carousel-card-padding rounded-md carousel-card-item-colors">

@@ -17,7 +17,7 @@ export default function CarouselCardItemYouTubeDiv({ techniqueUrl, isOpen }) {
 
   return (
     <div
-      className="w-full h-fit origin-top-right bg-stone-50 mt-3 mr-1 rounded-lg border-2 border-stone-800 ease-in-out p-1 text-stone-800 transition-all duration-250 transform"
+      className="w-full origin-top-right bg-stone-50 mt-3 mr-1 rounded-lg border-2 border-stone-800 ease-in-out p-1 text-stone-800 transition-all duration-250 transform"
       style={{
         transform: isOpen ? "scaleY(1)" : "scaleY(0)",
         transformOrigin: "top right",
@@ -28,7 +28,7 @@ export default function CarouselCardItemYouTubeDiv({ techniqueUrl, isOpen }) {
       }}
     >
       <ReactPlayer
-        width="573.5px"
+        width="100%"
         ref={videoPlayerRef}
         url={techniqueUrl}
         controls

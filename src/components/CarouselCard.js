@@ -54,7 +54,7 @@ export default function CarouselCard({
   );
 
   return (
-    <div className="relative carousel-card">
+    <div className="relative carousel-card overflow-y-auto">
       <span className="absolute top-4 right-4 text-3xl text-stone-500">
         {deleteClicked ? (
           <>
@@ -100,7 +100,9 @@ export default function CarouselCard({
         )}
       </span>
       <CarouseCardTitle cardId={cardId} />
-      <ul className="w-full flex flex-col gap-2">{renderedCardItems}</ul>
+      <ul className="w-full flex flex-col grow gap-2 overflow-y-auto">
+        {renderedCardItems}
+      </ul>
     </div>
   );
 }

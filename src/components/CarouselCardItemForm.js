@@ -12,7 +12,7 @@ export default function CarouselCardItemForm({
   return (
     <form
       onSubmit={onSubmit}
-      className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 mr-6 text-stone-800"
+      className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 ml-10 mr-6 text-stone-800"
     >
       <div className="col-span-2 inline-flex gap-2">
         <label htmlFor="name" className="font-bold">
@@ -25,6 +25,7 @@ export default function CarouselCardItemForm({
           onChange={onNameChange}
           className="rounded-md w-full"
           maxLength={21}
+          placeholder={"Exercise Name"}
         />
       </div>
       <div className="inline-flex gap-2">
@@ -38,6 +39,7 @@ export default function CarouselCardItemForm({
           onChange={onSetsChange}
           className="rounded-md w-full"
           maxLength={5}
+          placeholder={"Sets"}
         />
       </div>
       <div className="inline-flex gap-2">
@@ -51,6 +53,7 @@ export default function CarouselCardItemForm({
           onChange={onRepsChange}
           className="rounded-md w-full"
           maxLength={5}
+          placeholder={"Reps"}
         />
       </div>
       <div className="col-span-full inline-flex gap-2 w-full">
