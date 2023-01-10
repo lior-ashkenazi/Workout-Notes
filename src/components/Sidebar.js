@@ -1,5 +1,5 @@
-import {useDispatch, useSelector} from "react-redux";
-import {addSidebarItemThunk, deleteSidebarItemThunk} from "../store/index";
+import { useDispatch, useSelector } from "react-redux";
+import { addSidebarItemThunk, deleteSidebarItemThunk } from "../store/index";
 
 import SidebarAddButton from "./SidebarAddButton";
 import SidebarItem from "./SidebarItem";
@@ -16,23 +16,22 @@ export default function Sidebar() {
     dispatch(deleteSidebarItemThunk(sidebarItemId));
   };
 
-
   const renderedWorkouts = Object.keys(state.data).map((sidebarItemId) => (
-      <SidebarItem
-          key={sidebarItemId}
-          sidebarItemId={sidebarItemId}
-          onDelete={() => handleWorkoutDelete(sidebarItemId)}
-      />
+    <SidebarItem
+      key={sidebarItemId}
+      sidebarItemId={sidebarItemId}
+      onDelete={() => handleWorkoutDelete(sidebarItemId)}
+    />
   ));
 
   return (
-      <div className="sidebar">
-        <SidebarAddButton onClick={handleWorkoutAdd}>
-          Add Workout Program
-        </SidebarAddButton>
-        <ul className="flex flex-col flex-1 font-medium gap-4">
-          {renderedWorkouts}
-        </ul>
-      </div>
+    <div className="sidebar">
+      <SidebarAddButton onClick={handleWorkoutAdd}>
+        Add Workout Program
+      </SidebarAddButton>
+      <ul className="flex flex-col flex-1 font-medium gap-4 overflow-y-auto">
+        {renderedWorkouts}
+      </ul>
+    </div>
   );
 }
