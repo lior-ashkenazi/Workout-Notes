@@ -14,14 +14,12 @@ export default function CarouselCardItem({
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.cardItems);
   const { buttonsDisabledDispatch } = useContext(ButtonsDisabledContext);
-  console.log("kobebryant");
-  console.log(cardItemId);
-  console.log(state.data);
-  console.log(state.data[cardItemId]);
   const [name, setName] = useState(state.data[cardItemId]?.name);
   const [sets, setSets] = useState(state.data[cardItemId]?.sets);
   const [reps, setReps] = useState(state.data[cardItemId]?.reps);
-  const [technique, setTechnique] = useState(state.data[cardItemId]?.technique);
+  const [techniqueUrl, setTechniqueUrl] = useState(
+    state.data[cardItemId]?.technique
+  );
   const [editable, setEditable] = useState(state.data[cardItemId]?.editable);
 
   useEffect(() => {
@@ -44,8 +42,8 @@ export default function CarouselCardItem({
     setReps(event.target.value);
   };
 
-  const handleTechniqueChange = (event) => {
-    setTechnique(event.target.value);
+  const handleTechniqueUrlChange = (event) => {
+    setTechniqueUrl(event.target.value);
   };
 
   const handleEdit = () => {
@@ -70,14 +68,12 @@ export default function CarouselCardItem({
       return;
     }
 
-    if (technique && !technique.match(validYoutubeLinkPattern)) {
+    if (techniqueUrl && !techniqueUrl.match(validYoutubeLinkPattern)) {
       alert("Technique must be a YouTube video link.");
       return;
     }
 
-    setTechnique(technique ? technique.match(validYoutubeLinkPattern)[1] : "");
-
-    const updatedInfo = { name, sets, reps, technique, editable: false };
+    const updatedInfo = { name, sets, reps, techniqueUrl, editable: false };
     dispatch(
       cardItemsActions.updateCardItem({
         id: cardItemId,
@@ -95,19 +91,19 @@ export default function CarouselCardItem({
           name={name}
           sets={sets}
           reps={reps}
-          technique={technique}
+          techniqueUrl={techniqueUrl}
           onSubmit={handleSubmit}
           onNameChange={handleNameChange}
           onSetsChange={handleSetsChange}
           onRepsChange={handleRepsChange}
-          onTechniqueChange={handleTechniqueChange}
+          onTechniqueUrlChange={handleTechniqueUrlChange}
         />
       ) : (
         <CarouselCardRenderedItem
           name={name}
           sets={sets}
           reps={reps}
-          technique={technique}
+          techniqueUrl={techniqueUrl}
           onAdd={onAdd}
           onDelete={onDelete}
           onEdit={handleEdit}

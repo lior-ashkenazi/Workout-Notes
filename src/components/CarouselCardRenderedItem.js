@@ -7,31 +7,32 @@ import {
 } from "react-icons/hi";
 import { ButtonsDisabledContext } from "./Carousel";
 import { useContext, useState } from "react";
-import CarouselCardItemYouTubeBox from "./CarouselCardItemYouTubeBox";
+import CarouselCardItemYouTubeDiv from "./CarouselCardItemYouTubeDiv";
 
 export default function CarouselCardRenderedItem({
   name,
   sets,
   reps,
-  technique,
+  techniqueUrl,
   onAdd,
   onDelete,
   cardItemDeletable,
   onEdit,
 }) {
   console.log("kevingarnett");
-  console.log(!!technique);
+  console.log(!!techniqueUrl);
   const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
-  const [techniqueDropdownOpen, setTechniqueDropdownOpen] = useState(false);
+  const [techniqueUrlDropdownOpen, setTechniqueUrlDropdownOpen] =
+    useState(false);
 
-  const handleTechniqueDropdownClick = () => {
-    setTechniqueDropdownOpen(!techniqueDropdownOpen);
+  const handleTechniqueUrlDropdownClick = () => {
+    setTechniqueUrlDropdownOpen(!techniqueUrlDropdownOpen);
   };
 
   return (
     <div
       className={`${
-        techniqueDropdownOpen ? "h-96" : "h-12"
+        techniqueUrlDropdownOpen ? "h-96" : "h-12"
       } transition-height duration-250 ease-in-out`}
     >
       <div className="relative group carousel-card-padding rounded-md carousel-card-item-colors">
@@ -80,14 +81,14 @@ export default function CarouselCardRenderedItem({
             </span>
             <button
               type="submit"
-              disabled={!technique}
+              disabled={!techniqueUrl}
               className={`relative col-span-2 pr-3.5 rounded-md bg-stone-50 text-stone-900 border border-stone-800 transition-colors duration-300 transform ${
-                technique && "hover:bg-red-900 active:bg-stone-200"
+                techniqueUrl && "hover:bg-red-900 active:bg-stone-200"
               }`}
-              onClick={handleTechniqueDropdownClick}
+              onClick={handleTechniqueUrlDropdownClick}
             >
               <b>Technique</b>
-              {techniqueDropdownOpen ? (
+              {techniqueUrlDropdownOpen ? (
                 <HiChevronUp className="absolute top-1.5 right-0.5" />
               ) : (
                 <HiChevronDown className="absolute top-1.5 right-0.5" />
@@ -96,9 +97,9 @@ export default function CarouselCardRenderedItem({
           </div>
         </div>
         <div>
-          <CarouselCardItemYouTubeBox
-            videoId={technique}
-            isOpen={techniqueDropdownOpen}
+          <CarouselCardItemYouTubeDiv
+            techniqueUrl={techniqueUrl}
+            isOpen={techniqueUrlDropdownOpen}
           />
         </div>
       </div>

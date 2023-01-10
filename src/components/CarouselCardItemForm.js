@@ -2,12 +2,12 @@ export default function CarouselCardItemForm({
   name,
   sets,
   reps,
-  technique,
+  techniqueUrl,
   onSubmit,
   onNameChange,
   onSetsChange,
   onRepsChange,
-  onTechniqueChange,
+  onTechniqueUrlChange,
 }) {
   return (
     <form
@@ -54,14 +54,14 @@ export default function CarouselCardItemForm({
         />
       </div>
       <div className="col-span-full inline-flex gap-2 w-full">
-        <label htmlFor="technique" className="font-bold mr-2">
+        <label htmlFor="techniqueUrl" className="font-bold mr-2">
           Technique:
         </label>
         <input
           type="text"
-          id="technique"
-          value={technique}
-          onChange={onTechniqueChange}
+          id="techniqueUrl"
+          value={techniqueUrl}
+          onChange={onTechniqueUrlChange}
           className="rounded-md w-full"
           placeholder={"YouTube Link"}
         />

@@ -12,7 +12,7 @@ const cardItemsSlice = createSlice({
         name: "",
         sets: "",
         reps: "",
-        technique: "",
+        techniqueUrl: "",
         editable: true,
       };
     },
