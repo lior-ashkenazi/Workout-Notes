@@ -8,29 +8,31 @@ export default function Sidebar() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.sidebarItems);
 
-  const handleWorkoutAdd = () => {
-    dispatch(addSidebarItemThunk());
+  const handleSidebarItemAdd = async () => {
+    const { payload: sidebarItemId } = await dispatch(addSidebarItemThunk());
+    console.log("damian");
+    console.log(sidebarItemId);
   };
 
-  const handleWorkoutDelete = (sidebarItemId) => {
+  const handleSidebarItemDelete = (sidebarItemId) => {
     dispatch(deleteSidebarItemThunk(sidebarItemId));
   };
 
-  const renderedWorkouts = Object.keys(state.data).map((sidebarItemId) => (
+  const renderedSidebarItems = Object.keys(state.data).map((sidebarItemId) => (
     <SidebarItem
       key={sidebarItemId}
       sidebarItemId={sidebarItemId}
-      onDelete={() => handleWorkoutDelete(sidebarItemId)}
+      onDelete={() => handleSidebarItemDelete(sidebarItemId)}
     />
   ));
 
   return (
     <div className="sidebar">
-      <SidebarAddButton onClick={handleWorkoutAdd}>
+      <SidebarAddButton onClick={handleSidebarItemAdd}>
         Add Workout Program
       </SidebarAddButton>
       <ul className="flex flex-col flex-1 font-medium gap-4 overflow-y-auto">
-        {renderedWorkouts}
+        {renderedSidebarItems}
       </ul>
     </div>
   );
