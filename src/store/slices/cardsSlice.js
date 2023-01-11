@@ -27,8 +27,6 @@ const cardsSlice = createSlice({
     },
     deleteCard(state, action) {
       const id = action.payload;
-      console.log("korver");
-      console.log(id);
       delete state.data[id];
     },
   },

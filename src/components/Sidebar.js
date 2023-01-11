@@ -11,8 +11,6 @@ export default function Sidebar() {
 
   const handleSidebarItemAdd = async () => {
     const { payload: sidebarItemId } = await dispatch(addSidebarItemThunk());
-    console.log("damian");
-    console.log(sidebarItemId);
   };
 
   const handleSidebarItemDelete = (sidebarItemId) => {

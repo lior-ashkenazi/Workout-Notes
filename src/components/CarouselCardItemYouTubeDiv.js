@@ -8,9 +8,6 @@ export default function CarouselCardItemYouTubeDiv({ techniqueUrl, isOpen }) {
     if (isOpen && videoPlayerRef.current) {
       const url = new URL(techniqueUrl);
       const newTimestamp = new URLSearchParams(url.search).get("t") || 0;
-      console.log("amare");
-      console.log(techniqueUrl);
-      console.log(videoPlayerRef.current);
       videoPlayerRef.current.seekTo(newTimestamp, "seconds");
     }
   }, [techniqueUrl, isOpen]);

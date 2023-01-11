@@ -19,8 +19,6 @@ export default function CarouselCardRenderedItem({
   cardItemDeletable,
   onEdit,
 }) {
-  console.log("kevingarnett");
-  console.log(!!techniqueUrl);
   const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
   const [techniqueUrlDropdownOpen, setTechniqueUrlDropdownOpen] =
     useState(false);

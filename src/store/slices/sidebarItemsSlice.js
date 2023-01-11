@@ -12,8 +12,6 @@ const sidebarItemsSlice = createSlice({
     },
     updateSidebarItem(state, action) {
       const { id, info } = action.payload;
-      console.log("shimon");
-      console.log(info);
       state.data[id] = info;
     },
     deleteSidebarItem(state, action) {
