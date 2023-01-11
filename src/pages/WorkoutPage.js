@@ -1,14 +1,14 @@
-import { useParams } from "react-router-dom";
+import {useParams} from "react-router-dom";
 import Carousel from "../components/carousel/Carousel";
-import { useSelector } from "react-redux";
+import {useSelector} from "react-redux";
 import ErrorPage from "./ErrorPage";
 
 export default function WorkoutPage() {
   const state = useSelector((state) => state.reducer.carousels);
-  const { carouselId } = useParams();
+  const {carouselId} = useParams();
   return carouselId in state.data ? (
-    <Carousel carouselId={carouselId} />
+      <Carousel carouselId={carouselId}/>
   ) : (
-    <ErrorPage />
-  );
+             <ErrorPage/>
+         );
 }

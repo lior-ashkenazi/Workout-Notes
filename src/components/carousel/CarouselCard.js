@@ -84,8 +84,8 @@ export default function CarouselCard({
               className={`transition-colors duration-300 transform ${
                 !buttonsDisabledState.buttonsDisabled &&
                 cardDeletable &&
-                "hover:text-stone-700"
-              } active:text-stone-800`}
+                "hover:text-stone-700 active:text-stone-800"
+              }`}
               onClick={handleDeleteClicked}
             >
               <HiTrash />
