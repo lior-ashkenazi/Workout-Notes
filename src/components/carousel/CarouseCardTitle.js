@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { cardsActions } from "../store";
+import { cardsActions } from "../../store";
 import { useDispatch, useSelector } from "react-redux";
 import { ButtonsDisabledContext } from "./Carousel";
 

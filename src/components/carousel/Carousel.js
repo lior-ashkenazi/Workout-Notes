@@ -2,7 +2,10 @@ import { useState, useReducer, createContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CarouselCard from "./CarouselCard";
 import CarouselArrow from "./CarouselArrow";
-import { addCardToCarouselThunk, deleteCardFromCarouselThunk } from "../store";
+import {
+  addCardToCarouselThunk,
+  deleteCardFromCarouselThunk,
+} from "../../store";
 
 export const SET_BUTTONS_DISABLED = "SET_BUTTONS_DISABLED";
 

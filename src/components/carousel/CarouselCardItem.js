@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { cardItemsActions } from "../store";
+import { cardItemsActions } from "../../store";
 import CarouselCardItemForm from "./CarouselCardItemForm";
 import CarouselCardRenderedItem from "./CarouselCardRenderedItem";
 import { ButtonsDisabledContext, SET_BUTTONS_DISABLED } from "./Carousel";

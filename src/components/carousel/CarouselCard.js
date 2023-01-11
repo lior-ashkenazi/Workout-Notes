@@ -2,7 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CarouseCardTitle from "./CarouseCardTitle";
 import CarouselCardItem from "./CarouselCardItem";
-import { addCardItemToCardThunk, deleteCardItemFromCardThunk } from "../store";
+import {
+  addCardItemToCardThunk,
+  deleteCardItemFromCardThunk,
+} from "../../store";
 import { HiCheck, HiPlus, HiTrash, HiX } from "react-icons/hi";
 import { ButtonsDisabledContext } from "./Carousel";
 

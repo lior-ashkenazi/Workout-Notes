@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addSidebarItemThunk, deleteSidebarItemThunk } from "../store/index";
+import { addSidebarItemThunk, deleteSidebarItemThunk } from "../../store";
 
 import SidebarAddButton from "./SidebarAddButton";
 import SidebarItem from "./SidebarItem";
