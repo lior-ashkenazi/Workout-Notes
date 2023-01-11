@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <div className="relative w-full h-full overflow-x-hidden">
-      <div className="absolute lg:left-auto m-auto left-0 right-0 lg:bottom-[16rem] bottom-[32rem] lg:right-16 w-max text-lg-right text-center break-normal">
+      <div className="absolute lg:left-auto m-auto left-0 right-0 lg:bottom-[16rem] bottom-[32rem] lg:right-16 w-max lg:text-right text-center break-normal">
         <CSSTransition
           in={titleVisible}
           timeout={1000}
