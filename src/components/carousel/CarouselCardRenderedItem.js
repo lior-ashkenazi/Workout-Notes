@@ -22,12 +22,33 @@ export default function CarouselCardRenderedItem({
   const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
   const [techniqueUrlDropdownOpen, setTechniqueUrlDropdownOpen] =
     useState(false);
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [techniqueText, setTechniqueText] = useState("Technique");
 
   const handleTechniqueUrlDropdownClick = () => {
     setTechniqueUrlDropdownOpen(!techniqueUrlDropdownOpen);
   };
 
   useEffect(() => {}, [techniqueUrlDropdownOpen]);
+
+  useEffect(() => {
+    function handleResize() {
+      setScreenWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (screenWidth > 640) {
+      setTechniqueText("Technique");
+    } else {
+      setTechniqueText("");
+    }
+  }, [screenWidth]);
 
   return (
     <div
@@ -36,7 +57,7 @@ export default function CarouselCardRenderedItem({
       } transition-height duration-250 ease-in-out`}
     >
       <div className="relative group carousel-card-padding rounded-md carousel-card-item-colors">
-        <span className="absolute opacity-0 top-0 -left-12 pt-2.5 pb-2 ml-1.5 rounded-md transition-all duration-300 transform bg-stone-100 group-hover:opacity-100 group-hover:bg-stone-200">
+        <span className="absolute opacity-0 top-0 sm:-left-12 -left-8 sm:pt-2.5 sm:pb-2 pt-2.5 pb-1.5 sm:ml-1.5 sm:text-base text-xs rounded-md transition-all duration-300 transform bg-stone-100 group-hover:opacity-100 group-hover:bg-stone-200">
           <button
             disabled={
               buttonsDisabledState.buttonsDisabled || techniqueUrlDropdownOpen
@@ -82,29 +103,29 @@ export default function CarouselCardRenderedItem({
           </button>
         </span>
         <div className="">
-          <div className="grid grid-cols-11 justify-between">
-            <span className="col-span-5">
+          <div className="grid sm:grid-cols-11 grid-cols-8 justify-between">
+            <span className="sm:col-span-5 col-span-3 sm:text-base text-xs">
               <b>Name</b>: {name}
             </span>
-            <span className="col-span-2">
+            <span className="sm:col-span-2 col-span-2 sm:text-base text-xs">
               <b>Sets</b>: {sets}
             </span>
-            <span className="col-span-2">
+            <span className="sm:col-span-2 col-span-2 sm:text-base text-xs">
               <b>Reps</b>: {reps}
             </span>
             <button
               type="submit"
               disabled={!techniqueUrl}
-              className={`relative md:text-base text-xs col-span-2 pr-3.5 rounded-md bg-stone-50 text-stone-900 border border-stone-800 transition-colors duration-300 transform group-hover:bg-stone-200 ${
+              className={`relative sm:col-span-2 sm:text-base text-xs col-span-1 pr-3.5 rounded-md bg-stone-50 text-stone-900 border border-stone-800 transition-colors duration-300 transform group-hover:bg-stone-200 ${
                 techniqueUrl && "hover:!bg-stone-300 active:bg-stone-200"
               }`}
               onClick={handleTechniqueUrlDropdownClick}
             >
-              <b>Technique</b>
+              <b>{techniqueText}</b>
               {techniqueUrlDropdownOpen ? (
-                <HiChevronUp className="absolute top-1.5 right-0.5" />
+                <HiChevronUp className="absolute sm:top-1.5 sm:right-0.5 sm:left-auto left-2.5" />
               ) : (
-                <HiChevronDown className="absolute top-1.5 right-0.5" />
+                <HiChevronDown className="absolute sm:top-1.5 sm:right-0.5 top-0.5 sm:left-auto left-2.5" />
               )}
             </button>
           </div>

@@ -79,7 +79,7 @@ export default function Carousel({ carouselId }) {
         buttonsDisabledDispatch,
       }}
     >
-      <div className="carousel-colors carousel-bg flex shrink items-center justify-center md:gap-12 gap-1 w-full h-full">
+      <div className="carousel-colors carousel-bg flex shrink items-center justify-center sm:gap-12 gap-0.5 w-full h-full">
         <CarouselArrow
           onClick={handlePrevClick}
           isDefaultDirection

@@ -1,7 +1,9 @@
 import { CSSTransition } from "react-transition-group";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function HomePage() {
+  const titleRef = useRef(null);
+  const subtitleRef = useRef(null);
   const [titleVisible, setTitleVisible] = useState(false);
   const [subtitleVisible, setSubtitleVisible] = useState(false);
 
@@ -17,8 +19,12 @@ export default function HomePage() {
           timeout={1000}
           classNames="fade-slide"
           onEntered={() => setTimeout(() => setSubtitleVisible(true), 100)}
+          ref={titleRef}
         >
-          <h1 className="lg:text-8xl text-4xl drop-shadow-md text-neutral-400 font-bold tracking-tight">
+          <h1
+            className="lg:text-8xl text-4xl drop-shadow-md text-neutral-400 font-bold tracking-tight"
+            ref={titleRef}
+          >
             Workout Notes
           </h1>
         </CSSTransition>
@@ -26,11 +32,13 @@ export default function HomePage() {
           in={subtitleVisible}
           timeout={1000}
           classNames="fade-slide"
+          ref={subtitleRef}
         >
           <h2
             className={`${
               !subtitleVisible && "opacity-0"
             } lg:text-4xl text-md mt-3 drop-shadow-md text-neutral-400 font-bold tracking-tight`}
+            ref={subtitleRef}
           >
             Your place to document your workout programs
           </h2>

@@ -39,7 +39,7 @@
     }
 
     .carousel-card {
-        @apply flex flex-col md:w-[41rem] min-w-[29rem] h-[90%] pt-10 pr-3.5 pb-16 rounded-lg shadow-xl transition-all duration-300 overflow-auto gap-y-8
+        @apply flex flex-col md:w-[41rem] min-w-[20rem] h-[90%] pt-10 sm:pr-3.5 pb-16 rounded-lg shadow-xl transition-all duration-300 overflow-auto gap-y-8
     }
 
     .carousel-card-title * {
@@ -55,16 +55,13 @@
     }
 
     .arrow-icon {
-        @apply text-5xl drop-shadow-lg
+        @apply sm:text-5xl text-2xl drop-shadow-lg
     }
 
     .carousel-card-padding {
-        @apply ml-14 pl-3 pr-10 py-2
+        @apply sm:ml-14 ml-8 sm:pl-3 pl-2 sm:pr-10 py-2
     }
 
-    .shine-button {
-
-    }
 }
 
 .background-image {
