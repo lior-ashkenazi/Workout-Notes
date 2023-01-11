@@ -3,6 +3,7 @@ import { addSidebarItemThunk, deleteSidebarItemThunk } from "../store/index";
 
 import SidebarAddButton from "./SidebarAddButton";
 import SidebarItem from "./SidebarItem";
+import SidebarLogo from "./SidebarLogo";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -28,9 +29,12 @@ export default function Sidebar() {
 
   return (
     <div className="sidebar">
-      <SidebarAddButton onClick={handleSidebarItemAdd}>
-        Add Workout Program
-      </SidebarAddButton>
+      <div className="flex flex-col gap-y-4">
+        <SidebarLogo />
+        <SidebarAddButton onClick={handleSidebarItemAdd}>
+          Add Workout Program
+        </SidebarAddButton>
+      </div>
       <ul className="flex flex-col flex-1 font-medium gap-4 overflow-y-auto">
         {renderedSidebarItems}
       </ul>

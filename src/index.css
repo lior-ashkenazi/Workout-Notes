@@ -57,14 +57,28 @@
     .carousel-card-padding {
         @apply ml-14 pl-3 pr-10 py-2
     }
+
+    .shine-button {
+
+    }
 }
 
-.bg-img {
+.background-image {
     background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgb(88, 28, 135)),
     url('images/gym-background.jpg');
     background-size: cover;
     background-position-y: 80%;
 }
+
+.background-logo {
+    background-image: url('images/logo.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 150px;
+    height: 150px;
+}
+
 
 .fade-slide-enter {
     opacity: 0;
