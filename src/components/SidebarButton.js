@@ -26,7 +26,7 @@ export default function SidebarButton({
       <Link to={`/${pageId}`}>
         <button
           onClick={onClick}
-          className="w-full border-b-2 border-b-transparent rounded-lg text-left"
+          className="md:w-full w-28 border-b-2 border-b-transparent rounded-lg text-left"
         >
           {children}
         </button>

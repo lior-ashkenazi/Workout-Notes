@@ -10,15 +10,15 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div className="relative w-full h-full">
-      <div className="absolute bottom-[16rem] right-16 w-max text-right">
+    <div className="relative w-full h-full overflow-x-hidden">
+      <div className="absolute bottom-[16rem] right-16 w-max text-right break-normal">
         <CSSTransition
           in={titleVisible}
           timeout={1000}
           classNames="fade-slide"
           onEntered={() => setTimeout(() => setSubtitleVisible(true), 100)}
         >
-          <h1 className="text-8xl drop-shadow-md text-neutral-400 font-bold tracking-tight">
+          <h1 className="md:text-8xl text-4xl drop-shadow-md text-neutral-400 font-bold tracking-tight">
             Workout Notes
           </h1>
         </CSSTransition>
@@ -30,7 +30,7 @@ export default function HomePage() {
           <h2
             className={`${
               !subtitleVisible && "opacity-0"
-            } text-4xl mt-3 drop-shadow-md text-neutral-400 font-bold tracking-tight`}
+            } md:text-4xl text-2xl mt-3 drop-shadow-md text-neutral-400 font-bold tracking-tight`}
           >
             Your place to document your workout programs
           </h2>

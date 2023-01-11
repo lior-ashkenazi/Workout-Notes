@@ -97,7 +97,7 @@ export default function CarouselCardRenderedItem({
             <button
               type="submit"
               disabled={!techniqueUrl}
-              className={`relative col-span-2 pr-3.5 rounded-md bg-stone-50 text-stone-900 border border-stone-800 transition-colors duration-300 transform group-hover:bg-stone-200 ${
+              className={`relative md:text-base text-xs col-span-2 pr-3.5 rounded-md bg-stone-50 text-stone-900 border border-stone-800 transition-colors duration-300 transform group-hover:bg-stone-200 ${
                 techniqueUrl && "hover:!bg-stone-300 active:bg-stone-200"
               }`}
               onClick={handleTechniqueUrlDropdownClick}

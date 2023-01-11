@@ -28,16 +28,26 @@ export default function Sidebar() {
   ));
 
   return (
-    <div className="sidebar">
-      <div className="flex flex-col gap-y-4">
-        <SidebarLogo />
+    <div>
+      <div className="sidebar">
+        <div className="flex flex-col gap-y-4">
+          <SidebarLogo />
+          <SidebarAddButton onClick={handleSidebarItemAdd}>
+            Add Workout Program
+          </SidebarAddButton>
+        </div>
+        <ul className="flex flex-col flex-1 font-medium gap-4 overflow-y-auto mt-8">
+          {renderedSidebarItems}
+        </ul>
+      </div>
+      <div className="navbar">
         <SidebarAddButton onClick={handleSidebarItemAdd}>
           Add Workout Program
         </SidebarAddButton>
+        <ul className="flex flex-row flex-1 font-medium gap-1 overflow-x-auto overflow-y-hidden">
+          {renderedSidebarItems}
+        </ul>
       </div>
-      <ul className="flex flex-col flex-1 font-medium gap-4 overflow-y-auto">
-        {renderedSidebarItems}
-      </ul>
     </div>
   );
 }
