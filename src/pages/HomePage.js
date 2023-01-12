@@ -13,7 +13,7 @@ export default function HomePage() {
 
   return (
     <div className="relative w-full h-full overflow-x-hidden">
-      <div className="absolute lg:left-auto m-auto left-0 right-0 lg:bottom-[16rem] bottom-[32rem] lg:right-16 w-max lg:text-right text-center break-normal">
+      <div className="absolute lg:left-auto lg:top-auto top-1/2 left-1/2 lg:translate-x-0 lg:translate-y-0  transform -translate-x-1/2 -translate-y-1/2 lg:bottom-[16rem] lg:right-16 w-max lg:text-right text-center break-normal">
         <CSSTransition
           in={titleVisible}
           timeout={1000}
@@ -44,6 +44,18 @@ export default function HomePage() {
           </h2>
         </CSSTransition>
       </div>
+      <footer className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-max text-xs text-neutral-400">
+        2023 © by{" "}
+        <a
+          className="underline"
+          href="https://github.com/lior-ashkenazi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Lior Ashkenazi
+        </a>
+        . All rights reserved.
+      </footer>
     </div>
   );
 }

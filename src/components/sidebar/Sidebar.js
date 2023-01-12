@@ -10,7 +10,7 @@ export default function Sidebar() {
   const state = useSelector((state) => state.reducer.sidebarItems);
 
   const handleSidebarItemAdd = async () => {
-    const { payload: sidebarItemId } = await dispatch(addSidebarItemThunk());
+    await dispatch(addSidebarItemThunk());
   };
 
   const handleSidebarItemDelete = (sidebarItemId) => {
