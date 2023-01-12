@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/Workout-Notes/static/css/main.7340ebfb.css",
+    "main.js": "/Workout-Notes/static/js/main.6626c498.js",
+    "reactPlayerYouTube.js": "/Workout-Notes/static/js/reactPlayerYouTube.1000949e.chunk.js",
+    "reactPlayerSoundCloud.js": "/Workout-Notes/static/js/reactPlayerSoundCloud.42deece0.chunk.js",
+    "reactPlayerVimeo.js": "/Workout-Notes/static/js/reactPlayerVimeo.2af0a989.chunk.js",
+    "reactPlayerFacebook.js": "/Workout-Notes/static/js/reactPlayerFacebook.d5f10b22.chunk.js",
+    "reactPlayerStreamable.js": "/Workout-Notes/static/js/reactPlayerStreamable.b970465b.chunk.js",
+    "reactPlayerWistia.js": "/Workout-Notes/static/js/reactPlayerWistia.fd7930d0.chunk.js",
+    "reactPlayerTwitch.js": "/Workout-Notes/static/js/reactPlayerTwitch.a33fe7d1.chunk.js",
+    "reactPlayerDailyMotion.js": "/Workout-Notes/static/js/reactPlayerDailyMotion.08fa72ac.chunk.js",
+    "reactPlayerMixcloud.js": "/Workout-Notes/static/js/reactPlayerMixcloud.282a3b68.chunk.js",
+    "reactPlayerVidyard.js": "/Workout-Notes/static/js/reactPlayerVidyard.0647552d.chunk.js",
+    "reactPlayerKaltura.js": "/Workout-Notes/static/js/reactPlayerKaltura.065322fb.chunk.js",
+    "reactPlayerFilePlayer.js": "/Workout-Notes/static/js/reactPlayerFilePlayer.b9a4efb6.chunk.js",
+    "reactPlayerPreview.js": "/Workout-Notes/static/js/reactPlayerPreview.8edf0d2a.chunk.js",
+    "static/media/gym-background.jpg": "/Workout-Notes/static/media/gym-background.002b8077c6d576dadcc7.jpg",
+    "static/media/logo.svg": "/Workout-Notes/static/media/logo.32b3ca9c25285221f6b7.svg",
+    "index.html": "/Workout-Notes/index.html",
+    "main.7340ebfb.css.map": "/Workout-Notes/static/css/main.7340ebfb.css.map",
+    "main.6626c498.js.map": "/Workout-Notes/static/js/main.6626c498.js.map",
+    "reactPlayerYouTube.1000949e.chunk.js.map": "/Workout-Notes/static/js/reactPlayerYouTube.1000949e.chunk.js.map",
+    "reactPlayerSoundCloud.42deece0.chunk.js.map": "/Workout-Notes/static/js/reactPlayerSoundCloud.42deece0.chunk.js.map",
+    "reactPlayerVimeo.2af0a989.chunk.js.map": "/Workout-Notes/static/js/reactPlayerVimeo.2af0a989.chunk.js.map",
+    "reactPlayerFacebook.d5f10b22.chunk.js.map": "/Workout-Notes/static/js/reactPlayerFacebook.d5f10b22.chunk.js.map",
+    "reactPlayerStreamable.b970465b.chunk.js.map": "/Workout-Notes/static/js/reactPlayerStreamable.b970465b.chunk.js.map",
+    "reactPlayerWistia.fd7930d0.chunk.js.map": "/Workout-Notes/static/js/reactPlayerWistia.fd7930d0.chunk.js.map",
+    "reactPlayerTwitch.a33fe7d1.chunk.js.map": "/Workout-Notes/static/js/reactPlayerTwitch.a33fe7d1.chunk.js.map",
+    "reactPlayerDailyMotion.08fa72ac.chunk.js.map": "/Workout-Notes/static/js/reactPlayerDailyMotion.08fa72ac.chunk.js.map",
+    "reactPlayerMixcloud.282a3b68.chunk.js.map": "/Workout-Notes/static/js/reactPlayerMixcloud.282a3b68.chunk.js.map",
+    "reactPlayerVidyard.0647552d.chunk.js.map": "/Workout-Notes/static/js/reactPlayerVidyard.0647552d.chunk.js.map",
+    "reactPlayerKaltura.065322fb.chunk.js.map": "/Workout-Notes/static/js/reactPlayerKaltura.065322fb.chunk.js.map",
+    "reactPlayerFilePlayer.b9a4efb6.chunk.js.map": "/Workout-Notes/static/js/reactPlayerFilePlayer.b9a4efb6.chunk.js.map",
+    "reactPlayerPreview.8edf0d2a.chunk.js.map": "/Workout-Notes/static/js/reactPlayerPreview.8edf0d2a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7340ebfb.css",
+    "static/js/main.6626c498.js"
+  ]
+}
