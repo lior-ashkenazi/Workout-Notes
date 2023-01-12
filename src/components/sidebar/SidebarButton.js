@@ -23,7 +23,7 @@ export default function SidebarButton({
     // container for button
     <div className="relative group sidebar-colors sidebar-padding">
       {/*button itself */}
-      <Link to={`/${pageId}`}>
+      <Link to={`/Workout-Notes/${pageId}`}>
         <button
           onClick={onClick}
           className="md:w-full w-28 border-b-2 border-b-transparent rounded-lg text-left"
