@@ -35,8 +35,8 @@ export default function SidebarButton({
       <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform top-0 right-0 mt-2.5 mr-2">
         {deleteClicked ? (
           <>
-            <Link to="/Workout-Notes">
-              <button className="" onClick={onDelete}>
+            <Link to="/Workout-Notes/">
+              <button onClick={onDelete}>
                 <HiCheck />
               </button>
             </Link>
