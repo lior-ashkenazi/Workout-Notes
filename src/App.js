@@ -6,7 +6,7 @@ import ErrorPage from "./pages/ErrorPage";
 
 export default function App() {
   return (
-    <MemoryRouter initialEntries={["/"]}>
+    <MemoryRouter initialEntries={["/Workout-Notes"]}>
       <Routes>
         <Route path="/Workout-Notes" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
