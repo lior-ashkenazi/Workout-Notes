@@ -11,7 +11,7 @@ export default function App() {
         <Route path="/Workout-Notes" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path=":carouselId" element={<WorkoutPage />} />
-          <Route path="*" element={<ErrorPage />} />
+          <Route path="/Workout-Notes/*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

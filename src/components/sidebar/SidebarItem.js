@@ -34,7 +34,7 @@ export default function SidebarItem({ sidebarItemId, onDelete }) {
       })
     );
 
-    navigate(`/${sidebarItemId}`);
+    navigate(`/Workout-Notes/${sidebarItemId}`);
   };
 
   return (
