@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Workout-Notes/static/css/main.7340ebfb.css",
-    "main.js": "/Workout-Notes/static/js/main.464f6ad7.js",
+    "main.js": "/Workout-Notes/static/js/main.65098333.js",
     "reactPlayerYouTube.js": "/Workout-Notes/static/js/reactPlayerYouTube.1000949e.chunk.js",
     "reactPlayerSoundCloud.js": "/Workout-Notes/static/js/reactPlayerSoundCloud.42deece0.chunk.js",
     "reactPlayerVimeo.js": "/Workout-Notes/static/js/reactPlayerVimeo.2af0a989.chunk.js",
@@ -19,7 +19,7 @@
     "static/media/logo.svg": "/Workout-Notes/static/media/logo.32b3ca9c25285221f6b7.svg",
     "index.html": "/Workout-Notes/index.html",
     "main.7340ebfb.css.map": "/Workout-Notes/static/css/main.7340ebfb.css.map",
-    "main.464f6ad7.js.map": "/Workout-Notes/static/js/main.464f6ad7.js.map",
+    "main.65098333.js.map": "/Workout-Notes/static/js/main.65098333.js.map",
     "reactPlayerYouTube.1000949e.chunk.js.map": "/Workout-Notes/static/js/reactPlayerYouTube.1000949e.chunk.js.map",
     "reactPlayerSoundCloud.42deece0.chunk.js.map": "/Workout-Notes/static/js/reactPlayerSoundCloud.42deece0.chunk.js.map",
     "reactPlayerVimeo.2af0a989.chunk.js.map": "/Workout-Notes/static/js/reactPlayerVimeo.2af0a989.chunk.js.map",
@@ -36,6 +36,6 @@
   },
   "entrypoints": [
     "static/css/main.7340ebfb.css",
-    "static/js/main.464f6ad7.js"
+    "static/js/main.65098333.js"
   ]
 }
