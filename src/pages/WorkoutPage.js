@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import Carousel from "../components/carousel/Carousel";
 import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
+import ErrorPage from "./ErrorPage";
 
 export default function WorkoutPage() {
   const state = useSelector((state) => state.reducer.carousels);
@@ -9,6 +9,6 @@ export default function WorkoutPage() {
   return carouselId in state.data ? (
     <Carousel carouselId={carouselId} />
   ) : (
-    <Navigate to={"/Workout-Notes/404"} replace />
+    <ErrorPage />
   );
 }
