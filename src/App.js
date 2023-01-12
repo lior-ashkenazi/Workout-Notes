@@ -8,7 +8,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="Workout-Notes" element={<SharedLayout />}>
+        <Route path="/Workout-Notes" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path=":carouselId" element={<WorkoutPage />} />
           <Route path="*" element={<ErrorPage />} />
