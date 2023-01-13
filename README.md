@@ -6,5 +6,5 @@ all the acquired information about their workout regimens in a responsive
 and intuitive way in a world where media services are overabundant and
 disorganized with that sort of information.
 
-I had the chance to get experience utilizing ReactJS, HTML3, and CSS5 in this
+I had the chance to get experience utilizing React.js, HTML3, and CSS5 in this
 project (by using the Tailwind CSS framework).
