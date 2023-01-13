@@ -59,7 +59,7 @@
     }
 
     .carousel-card-padding {
-        @apply sm:ml-14 ml-8 sm:pl-3 pl-2.5 pr-1 sm:pr-10 py-2
+        @apply sm:ml-14 ml-8 sm:pl-3 pl-2.5 pr-10 sm:pr-10 py-2
     }
 
 }

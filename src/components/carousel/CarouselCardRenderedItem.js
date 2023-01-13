@@ -102,9 +102,9 @@ export default function CarouselCardRenderedItem({
             >
               <b>Technique</b>
               {techniqueUrlDropdownOpen ? (
-                <HiChevronUp className="absolute sm:top-1.5 sm:right-0.5 top-1 right-1" />
+                <HiChevronUp className="absolute sm:top-1.5 right-0.5 top-1" />
               ) : (
-                <HiChevronDown className="absolute sm:top-1.5 sm:right-0.5 top-1  right-1" />
+                <HiChevronDown className="absolute sm:top-1.5 right-0.5 top-1" />
               )}
             </button>
           </div>
