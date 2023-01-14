@@ -79,7 +79,7 @@ export default function CarouselCardItemForm({
   return (
     <form
       onSubmit={onSubmit}
-      className="grid grid-cols-4 gap-x-3 gap-y-4 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 p-2.5 sm:ml-10 sm:mr-6 mx-2 text-stone-800 sm:text-base text-xs"
+      className="grid grid-cols-4 sm:gap-x-3 gap-x-1 gap-y-4 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 p-2.5 sm:ml-10 sm:mr-6 mx-2 text-stone-800 sm:text-base text-xs"
     >
       <div className="relative col-span-2 inline-flex gap-2 w-full">
         <label htmlFor="name" className="font-bold">
