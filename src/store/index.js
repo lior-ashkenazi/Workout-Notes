@@ -32,7 +32,6 @@ const persistConfig = {
   storage,
 };
 
-// TODO should use combinedReducer
 const rootReducer = combineReducers({
   sidebarItems: sidebarItemsReducer,
   carousels: carouselsReducer,

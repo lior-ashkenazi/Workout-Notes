@@ -1,5 +1,4 @@
 export default function SidebarAddButton({ children, onClick, disabled }) {
-  console.log(disabled);
   return (
     <div>
       <button
