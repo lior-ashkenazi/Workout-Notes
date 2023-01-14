@@ -1,44 +1,34 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
 import { carouselsActions, addCardThunk, deleteCardThunk } from "../index";
 
-export const addCarouselThunk = createAsyncThunk(
-  "carousels/addCarousel",
-  async (id, { getState, dispatch }) => {
-    const { payload: cardId } = await dispatch(addCardThunk());
+export const addCarouselThunk = (id, { getState, dispatch }) => {
+  const cardId = addCardThunk({ getState, dispatch });
 
-    await dispatch(carouselsActions.addCarousel({ id, cardId }));
+  dispatch(carouselsActions.addCarousel({ id, cardId }));
+};
+
+export const deleteCarouselThunk = (id, { getState, dispatch }) => {
+  const state = getState.reducer.carousels;
+
+  for (let i = 0; i < state.data[id].length; i++) {
+    deleteCardFromCarouselThunk({ id, i }, { getState, dispatch });
   }
-);
 
-export const deleteCarouselThunk = createAsyncThunk(
-  "carousels/deleteCarousel",
-  async (id, { getState, dispatch }) => {
-    const state = getState().reducer.carousels;
+  dispatch(carouselsActions.deleteCarousel(id));
+};
 
-    for (let i = 0; i < state.data[id].length; i++) {
-      await dispatch(deleteCardFromCarouselThunk({ id, i }));
-    }
+export const addCardToCarouselThunk = (id, { getState, dispatch }) => {
+  const cardId = addCardThunk({ getState, dispatch });
 
-    await dispatch(carouselsActions.deleteCarousel(id));
-  }
-);
+  dispatch(carouselsActions.addCardToCarousel({ id, cardId }));
+};
 
-export const addCardToCarouselThunk = createAsyncThunk(
-  "cards/addCardToCarousel",
-  async (id, { getState, dispatch }) => {
-    const { payload: cardId } = await dispatch(addCardThunk());
+export const deleteCardFromCarouselThunk = (
+  { id, i },
+  { getState, dispatch }
+) => {
+  const state = getState.reducer.carousels;
 
-    await dispatch(carouselsActions.addCardToCarousel({ id, cardId }));
-  }
-);
+  deleteCardThunk(state.data[id][i], { getState, dispatch });
 
-export const deleteCardFromCarouselThunk = createAsyncThunk(
-  "cards/deleteCardFromCarousel",
-  async ({ id, i }, { getState, dispatch }) => {
-    const state = getState().reducer.carousels;
-
-    await dispatch(deleteCardThunk(state.data[id][i]));
-
-    await dispatch(carouselsActions.deleteCardFromCarousel({ id, i }));
-  }
-);
+  dispatch(carouselsActions.deleteCardFromCarousel({ id, i }));
+};

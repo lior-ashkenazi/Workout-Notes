@@ -1,30 +1,23 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {v4 as uuidv4} from "uuid";
+import { v4 as uuidv4 } from "uuid";
 
 import {
-    sidebarItemsActions,
-    addCarouselThunk,
-    deleteCarouselThunk,
+  sidebarItemsActions,
+  addCarouselThunk,
+  deleteCarouselThunk,
 } from "../index";
 
-export const addSidebarItemThunk = createAsyncThunk(
-    "sidebarItems/addSidebarItem",
-    async (_, {getState, dispatch}) => {
-        const id = uuidv4();
+export const addSidebarItemThunk = ({ getState, dispatch }) => {
+  const id = uuidv4();
 
-        await dispatch(addCarouselThunk(id));
+  addCarouselThunk(id, { getState, dispatch });
 
-        await dispatch(sidebarItemsActions.addSidebarItem(id));
+  dispatch(sidebarItemsActions.addSidebarItem(id));
 
-        return id
-    }
-);
+  return id;
+};
 
-export const deleteSidebarItemThunk = createAsyncThunk(
-    "sidebarItems/deleteSidebarItem",
-    async (id, {getState, dispatch}) => {
-        await dispatch(deleteCarouselThunk(id));
+export const deleteSidebarItemThunk = (id, { getState, dispatch }) => {
+  deleteCarouselThunk(id, { getState, dispatch });
 
-        await dispatch(sidebarItemsActions.deleteSidebarItem(id));
-    }
-);
+  dispatch(sidebarItemsActions.deleteSidebarItem(id));
+};

@@ -16,24 +16,27 @@ export default function CarouselCard({
   cardDeletable,
 }) {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.reducer.cards);
+  const getState = useSelector((state) => state);
+  const state = getState.reducer.cards;
   const [cardItemDeletable, setCardItemDeletable] = useState(
     1 < state.data[cardId].cardItemsId.length
   );
   const [deleteClicked, setDeleteClicked] = useState(false);
 
   useEffect(() => {
+    console.log(state.data);
+    console.log(state.data[cardId]);
     setCardItemDeletable(1 < state.data[cardId].cardItemsId.length);
   }, [state.data]);
 
   const { buttonsDisabledState } = useContext(ButtonsDisabledContext);
 
   const handleCardItemAdd = (i) => {
-    dispatch(addCardItemToCardThunk({ id: cardId, i }));
+    addCardItemToCardThunk({ id: cardId, i }, { getState, dispatch });
   };
 
   const handleCardItemDelete = (i) => {
-    dispatch(deleteCardItemFromCardThunk({ id: cardId, i }));
+    deleteCardItemFromCardThunk({ id: cardId, i }, { getState, dispatch });
   };
 
   const handleDeleteClicked = () => {

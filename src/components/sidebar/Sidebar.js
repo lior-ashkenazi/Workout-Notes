@@ -8,15 +8,16 @@ import { useState } from "react";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
-  const state = useSelector((state) => state.reducer.sidebarItems);
+  const getState = useSelector((state) => state);
+  const state = getState.reducer.sidebarItems;
   const [workoutAddButtonDisabled, setWorkoutButtonDisabled] = useState(false);
 
-  const handleSidebarItemAdd = async () => {
-    await dispatch(addSidebarItemThunk());
+  const handleSidebarItemAdd = () => {
+    addSidebarItemThunk({ getState, dispatch });
   };
 
   const handleSidebarItemDelete = (sidebarItemId) => {
-    dispatch(deleteSidebarItemThunk(sidebarItemId));
+    deleteSidebarItemThunk(sidebarItemId, { getState, dispatch });
   };
 
   const handleSidebarInputFocus = () => {
