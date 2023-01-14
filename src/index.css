@@ -43,7 +43,7 @@
     }
 
     .carousel-card-title * {
-        @apply text-4xl font-bold tracking-tight
+        @apply sm:text-4xl text-2xl font-bold tracking-tight p-1
     }
 
     .carousel-card-item-colors {
@@ -60,6 +60,10 @@
 
     .carousel-card-padding {
         @apply sm:ml-14 ml-8 sm:pl-3 pl-2.5 pr-10 sm:pr-10 py-2
+    }
+
+    .carousel-card-item-form {
+        @apply rounded-md w-full px-1
     }
 
     .input-padding {

@@ -12,9 +12,9 @@ export default function CarouselCardItemForm({
   return (
     <form
       onSubmit={onSubmit}
-      className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 ml-10 mr-6 text-stone-800 sm:text-base text-xs"
+      className="grid grid-cols-4 gap-3 place-items-start bg-stone-50 rounded-lg border-2 border-stone-800 px-2 py-2 sm:ml-10 sm:mr-6 mx-2 text-stone-800 sm:text-base text-xs"
     >
-      <div className="col-span-2 inline-flex gap-2">
+      <div className="col-span-2 inline-flex gap-2 w-full">
         <label htmlFor="name" className="font-bold">
           Name:
         </label>
@@ -23,7 +23,7 @@ export default function CarouselCardItemForm({
           id="name"
           value={name}
           onChange={onNameChange}
-          className="rounded-md w-full"
+          className="carousel-card-item-form"
           maxLength={21}
           placeholder={"Exercise Name"}
         />
@@ -37,7 +37,7 @@ export default function CarouselCardItemForm({
           id="sets"
           value={sets}
           onChange={onSetsChange}
-          className="rounded-md w-full"
+          className="carousel-card-item-form"
           maxLength={5}
           placeholder={"Sets"}
         />
@@ -51,7 +51,7 @@ export default function CarouselCardItemForm({
           id="reps"
           value={reps}
           onChange={onRepsChange}
-          className="rounded-md w-full"
+          className="carousel-card-item-form"
           maxLength={5}
           placeholder={"Reps"}
         />
@@ -65,7 +65,7 @@ export default function CarouselCardItemForm({
           id="techniqueUrl"
           value={techniqueUrl}
           onChange={onTechniqueUrlChange}
-          className="rounded-md w-full"
+          className="carousel-card-item-form"
           placeholder={"YouTube Link"}
         />
         <button
