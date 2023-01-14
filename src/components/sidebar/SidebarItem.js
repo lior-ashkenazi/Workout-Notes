@@ -40,7 +40,7 @@ export default function SidebarItem({
       })
     );
 
-    navigate(`/Workout-Notes/${sidebarItemId}`);
+    navigate(`/workout-notes/${sidebarItemId}`);
   };
 
   return (

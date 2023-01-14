@@ -12,7 +12,7 @@ export default function ErrorPage() {
         </h2>
       </div>
       <div>
-        <Link to="/Workout-Notes/">
+        <Link to="/workout-notes/">
           <button className="rounded-lg text-3xl capitalize bg-neutral-100 bg-opacity-90 tracking-tight text-neutral-700 px-4 py-4 border border-stone-400 shadow font-semibold outline-stone-700 transition-colors duration-300 transform hover:bg-stone-200 hover:text-stone-800 active:bg-neutral-300 active:text-neutral-900">
             Back Home
           </button>

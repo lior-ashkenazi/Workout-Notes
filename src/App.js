@@ -6,9 +6,9 @@ import ErrorPage from "./pages/ErrorPage";
 
 export default function App() {
   return (
-    <MemoryRouter initialEntries={["/Workout-Notes"]}>
+    <MemoryRouter initialEntries={["/workout-notes"]}>
       <Routes>
-        <Route path="/Workout-Notes" element={<SharedLayout />}>
+        <Route path="/workout-notes" element={<SharedLayout />}>
           <Route index element={<HomePage />} />
           <Route path=":carouselId" element={<WorkoutPage />} />
           <Route path="*" element={<ErrorPage />} />

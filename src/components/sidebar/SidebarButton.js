@@ -23,7 +23,7 @@ export default function SidebarButton({
     // container for button
     <div className="relative group sidebar-colors sidebar-padding">
       {/*button itself */}
-      <Link to={`/Workout-Notes/${pageId}`}>
+      <Link to={`/workout-notes/${pageId}`}>
         <button
           onClick={onClick}
           className="md:w-full w-28 border-b-2 border-b-transparent rounded-lg text-left px-2"
@@ -35,7 +35,7 @@ export default function SidebarButton({
       <span className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform top-0 right-0 mt-2.5 mr-2">
         {deleteClicked ? (
           <>
-            <Link to="/Workout-Notes/">
+            <Link to="/workout-notes/">
               <button onClick={onDelete}>
                 <HiCheck />
               </button>
