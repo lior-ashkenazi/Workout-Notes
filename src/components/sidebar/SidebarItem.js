@@ -5,7 +5,12 @@ import { useState } from "react";
 import { sidebarItemsActions } from "../../store";
 import { useNavigate } from "react-router-dom";
 
-export default function SidebarItem({ sidebarItemId, onDelete }) {
+export default function SidebarItem({
+  sidebarItemId,
+  onDelete,
+  onInputFocus,
+  onInputBlur,
+}) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -25,6 +30,7 @@ export default function SidebarItem({ sidebarItemId, onDelete }) {
     if (!text) return;
 
     setEditable(false);
+    onInputBlur();
 
     const updatedInfo = { text, editable: false };
     dispatch(
@@ -44,6 +50,7 @@ export default function SidebarItem({ sidebarItemId, onDelete }) {
           type="text"
           value={text}
           autoFocus
+          onFocus={onInputFocus}
           onChange={handleTextChange}
           onBlur={handleTextSubmit}
           onKeyDown={(e) => {

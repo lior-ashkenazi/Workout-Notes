@@ -4,10 +4,12 @@ import { addSidebarItemThunk, deleteSidebarItemThunk } from "../../store";
 import SidebarAddButton from "./SidebarAddButton";
 import SidebarItem from "./SidebarItem";
 import SidebarLogo from "./SidebarLogo";
+import { useState } from "react";
 
 export default function Sidebar() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state.reducer.sidebarItems);
+  const [workoutAddButtonDisabled, setWorkoutButtonDisabled] = useState(false);
 
   const handleSidebarItemAdd = async () => {
     await dispatch(addSidebarItemThunk());
@@ -17,11 +19,21 @@ export default function Sidebar() {
     dispatch(deleteSidebarItemThunk(sidebarItemId));
   };
 
+  const handleSidebarInputFocus = () => {
+    setWorkoutButtonDisabled(true);
+  };
+
+  const handleSidebarInputBlur = () => {
+    setWorkoutButtonDisabled(false);
+  };
+
   const renderedSidebarItems = Object.keys(state.data).map((sidebarItemId) => (
     <SidebarItem
       key={sidebarItemId}
       sidebarItemId={sidebarItemId}
       onDelete={() => handleSidebarItemDelete(sidebarItemId)}
+      onInputFocus={() => handleSidebarInputFocus()}
+      onInputBlur={() => handleSidebarInputBlur()}
     />
   ));
 
@@ -30,7 +42,10 @@ export default function Sidebar() {
       <div className="sidebar">
         <div className="flex flex-col gap-y-4">
           <SidebarLogo />
-          <SidebarAddButton onClick={handleSidebarItemAdd}>
+          <SidebarAddButton
+            onClick={handleSidebarItemAdd}
+            disabled={workoutAddButtonDisabled}
+          >
             Add Workout Program
           </SidebarAddButton>
         </div>

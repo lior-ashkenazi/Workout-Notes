@@ -4,7 +4,7 @@ export default function SidebarInput(props) {
     <div className="sidebar-padding">
       <input
         {...props}
-        className="bg-transparent outline-none border-b-2 border-stone-700 w-full"
+        className="bg-transparent outline-none border-b-2 border-stone-700 w-full input-padding"
         placeholder="Workout Program"
       />
     </div>
