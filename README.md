@@ -8,3 +8,6 @@ disorganized with that sort of information.
 
 I had the chance to get experience utilizing React.js, HTML3, and CSS5 in this
 project (by using the Tailwind CSS framework).
+
+Link to live demo:
+https://lior-ashkenazi.github.io/workout-notes/
